@@ -1,1 +1,10 @@
 /* your styles, here */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  .category-img {
+      width: 200px;
+  }
