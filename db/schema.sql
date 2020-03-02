@@ -11,11 +11,12 @@ CREATE UNIQUE INDEX index ON creature_types(type);
 DROP TABLE IF EXISTS adoptable_creatures;
 CREATE TABLE adoptable_creatures (
     id SERIAL PRIMARY KEY,
-    img_url VARCHAR(255),
     name VARCHAR(255) NOT NULL,
-    age INT,
+    img_url VARCHAR(255) NOT NULL,
+    age INT NOT NULL,
     vaccination_status BOOLEAN,
-    adoption_story TEXT,
-    adoption_status BOOLEAN,
-    type_id INTEGER REFERENCES creature_types(id)
+    adoption_story TEXT NOT NULL,
+    adoption_status VARCHAR(255) NOT NULL,
+    type_id INTEGER REFERENCES creature_types(id) NOT NULL
 );
+

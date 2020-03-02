@@ -11,7 +11,8 @@ INSERT INTO adoptable_creatures(
     vaccination_status,
     adoption_story,
     adoption_status,
-    type_id
 )
 VALUES
-    ('Nyan Nyan',)
+    ('Nyan Nyan', 'https://upload.wikimedia.org/wikipedia/en/e/ed/Nyan_cat_250px_frame.PNG', 4, 'no', 'Was found at the end of a rainbow and is looking for a new sky home', 'adoption pending'),
+    ('Spyro', 'https://www.syfy.com/sites/syfy/files/styles/1200x680/public/2018/11/spyro_reignited.png', 7950, '', 'Fought many a battle now needs a happy home', 'can be adopted'),
+    ('Peter Pegasus', 'https://vignette.wikia.nocookie.net/disney/images/e/e7/Peter_Pegasus.jpg/revision/latest?cb=20180601060225', 2, 'no', 'Fell from the clouds and into you arms', 'can be adopted');
