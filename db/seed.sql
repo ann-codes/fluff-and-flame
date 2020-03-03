@@ -53,7 +53,7 @@ VALUES
     'can be adopted',
     2
   );
-  
+
 INSERT INTO adoption_applications(
     name,
     phone_number,
@@ -78,4 +78,4 @@ VALUES
     'rent',
     'pending',
     1
-  )
+  );

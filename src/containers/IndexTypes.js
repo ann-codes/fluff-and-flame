@@ -1,8 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
-
 import fetchData from "../functions/fetchData";
 import CardType from "../components/CardType";
-import AdoptionForm from "../components/AdoptionForm"; /// TESTING ONLY ====================
 
 const IndexTypes = props => {
   const [creatureTypes, setCreatureTypes] = useState([]);
@@ -24,9 +22,6 @@ const IndexTypes = props => {
 
   return (
     <Fragment>
-      <AdoptionForm
-      // FOR TESTING ONLY remove component after =======================================
-      />
       <h1>The Order of Fluff and Flame Adoption Agency</h1>
       <h2>Select a Creature to adopt!</h2>
       {mapTypes}

@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 import ErrorList from "./ErrorList";
 import validateForm from "../functions/validateForm";
+import postData from "../functions/postData";
 
 const AdoptionForm = props => {
+  const POST_API_PATH = "/api/v1/applicants";
   const defaultApplicant = {
     name: "",
     phoneNumber: "",
     email: "",
     homeStatus: ""
   };
+
   const [newApplicant, setNewApplicant] = useState(defaultApplicant);
   const [errors, setErrors] = useState({});
+
+  const clearForm = () => setNewApplicant(defaultApplicant);
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
     setNewApplicant({ ...newApplicant, [name]: value });
-  };
-
-  const clearForm = e => {
-    e.preventDefault();
-    setNewApplicant(defaultApplicant);
   };
 
   const submitApplicant = e => {
@@ -31,7 +31,16 @@ const AdoptionForm = props => {
         setErrors
       )
     ) {
-      console.log(newApplicant); // ================== awaiting db to post to
+      const payload = {
+        name: newApplicant.name,
+        phone_number: newApplicant.phoneNumber,
+        email: newApplicant.email,
+        home_status: newApplicant.homeStatus
+      };
+      postData(POST_API_PATH, payload);
+      clearForm();
+      props.submitState(true)
+      props.showForm(false)
     }
   };
 
@@ -74,26 +83,17 @@ const AdoptionForm = props => {
           name="homeStatus"
           id="adoptionForm-homeStatus"
           value={newApplicant.homeStatus}
-          onChange={handleChange}
-        >
-          <option type="text" value="">
-            -
-          </option>
-          <option type="text" value="rent">
-            Rent
-          </option>
-          <option type="text" value="own">
-            Own
-          </option>
+          onChange={handleChange}>
+          <option type="text" value="">-</option>
+          <option type="text" value="rent">Rent</option>
+          <option type="text" value="own">Own</option>
         </select>
       </label>
       <div className="button-group">
         <input className="button" type="submit" value="Submit" />
-        <button className="button" type="button" onClick={clearForm}>
-          Clear
-        </button>
+        <button className="button" type="button" onClick={clearForm}>Clear</button>
       </div>
-      <div>* denotes required.</div>
+      <div>* All feilds required.</div>
     </form>
   );
 };

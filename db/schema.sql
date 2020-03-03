@@ -27,7 +27,5 @@ CREATE TABLE adoption_applications (
   email VARCHAR(255) NOT NULL,
   home_status VARCHAR(255) NOT NULL,
   application_status VARCHAR(255),
-  creature_id INTEGER NOT NULL
+  creature_id INTEGER REFERENCES adoptable_creatures(id) NOT NULL
 );
--- NEED TO UPDATE THE creature_id to only accept the foreign key once that table schema is created
--- creature_id INTEGER REFERENCES name_of_db(id)
