@@ -52,7 +52,7 @@ app.get("/api/v1/creature_types/:type", (req, res) => {
     .connect()
     .then(client => {
       client
-        .query(`SELECT * FROM creature_types WHERE type = '${findType}'`)
+        .query(`SELECT name, img_url, age, vaccination_status FROM adoptable_creatures WHERE type_id = '${findType}'`)
         .then(result => {
           const creatures = result.rows;
           if (creatures.length > 0) {
