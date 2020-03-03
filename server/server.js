@@ -68,9 +68,37 @@ app.get("/api/v1/creature_types/:type", (req, res) => {
     });
 });
 
+app.get("/api/v1/creature_types/:type/:id", (req, res) => {
+  const findType = req.params.type;
+  const findId = req.params.id;
+
+  pool
+    .connect()
+    .then(client => {
+      client.query(`SELECT * FROM creature_types WHERE type = '${findType}' AND id = '${findId}'`)
+        .then(result => {
+          const creature = result.rows;
+          if (creature.length > 0) {
+            client.release();
+            res.json(creature);
+          } else {
+            res.status(404).send("404 Creature Not Found!");
+          }
+        });
+    })
+    .catch(error => {
+      console.log("ERROR =====> ", error);
+    });
+  });
+
 // Express routes
 app.get("/", (req, res) => {
   res.redirect("/creatures");
+});
+
+app.get("/creatures/:type/:id", (req, res) => {
+  
+  res.render("home");
 });
 
 app.get('*', (req, res) => {
