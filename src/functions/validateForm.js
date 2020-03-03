@@ -1,8 +1,6 @@
 /* ===============================
 
 POJO to take parameters to set the required fields.
-  stateGetter is name of the state to update.
-  errorSetter is name of the setter for the error state.
 Will also need states in to hold errors states for validation messages.
   const [errors, setErrors] = useState({});
 Will need to add <ErrorList errors={error state name} /> to display errors

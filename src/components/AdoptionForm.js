@@ -4,7 +4,7 @@ import validateForm from "../functions/validateForm";
 import postData from "../functions/postData";
 
 const AdoptionForm = props => {
-  const POST_API_PATH = "/api/v1/applicants";
+  const postAPIpath = "/api/v1/applicants";
   const defaultApplicant = {
     name: "",
     phoneNumber: "",
@@ -17,13 +17,13 @@ const AdoptionForm = props => {
 
   const clearForm = () => setNewApplicant(defaultApplicant);
 
-  const handleChange = e => {
-    const { name, value } = e.currentTarget;
+  const handleChange = event => {
+    const { name, value } = event.currentTarget;
     setNewApplicant({ ...newApplicant, [name]: value });
   };
 
-  const submitApplicant = e => {
-    e.preventDefault();
+  const submitApplicant = event => {
+    event.preventDefault();
     if (
       validateForm(
         ["name", "phoneNumber", "email", "homeStatus"],
@@ -37,7 +37,7 @@ const AdoptionForm = props => {
         email: newApplicant.email,
         home_status: newApplicant.homeStatus
       };
-      postData(POST_API_PATH, payload);
+      postData(postAPIpath, payload);
       clearForm();
       props.submitState(true)
       props.showForm(false)
