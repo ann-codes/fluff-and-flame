@@ -20,3 +20,5 @@ CREATE TABLE adoptable_creatures (
     type_id INTEGER REFERENCES creature_types(id) NOT NULL
 );
 
+
+SELECT name, img_url, age, vaccination_status FROM adoptable_creatures;

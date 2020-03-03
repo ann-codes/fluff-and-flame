@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+
+import fetchData from "../functions/fetchData";
 
 const IndexCreature = props => {
+  const [creatures, setCreatures] = useState([]);
+
+  const API_ENDPOINT =
   return (
     <div>
-      The index page for a particular creature type to show the induvidual
-      creatures that matches that type.
+      <h3>Our </h3>
     </div>
   );
 };
