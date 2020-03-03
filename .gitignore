@@ -10,3 +10,4 @@ yarn-error.log*
 
 .lesson.yml
 node-group-project.md
+public/bundle.js
