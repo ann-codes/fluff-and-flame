@@ -71,15 +71,11 @@ app.get("/api/v1/creature_types/:type", (req, res) => {
 app.get("/api/v1/creature_types/:type/:id", (req, res) => {
   const findId = req.params.id;
   const findType = req.params.type;
-
   pool
     .connect()
     .then(client => {
-      client.query(`SELECT * FROM adoptable_creatures WHERE id = '${findId}'`)
+      client.query("select * from adoptable_creatures join creature_types on creature_types.id = adoptable_creatures.type_id where upper(creature_types.type)=upper($1) and adoptable_creatures.id=$2", [findType, findId])
         .then(result => {
-          // if (findType){
-          //   if(findId != )
-          // }
           const creature = result.rows;
           if (creature.length > 0) {
             client.release();

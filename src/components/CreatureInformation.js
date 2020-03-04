@@ -7,11 +7,10 @@ const CreatureInformation = props => {
     } else {
         vaccination = "Vaccinated"
     }
-    
-    // if ()
+
     return (
         <div>
-        <p><img src={props.creature.img_url}/></p>
+        <p><img src={props.creature.creature_img}/></p>
         <p>{props.creature.name}</p>
         <p>Age:{props.creature.age}</p>
         <p>Vaccination Status: {vaccination}</p>
