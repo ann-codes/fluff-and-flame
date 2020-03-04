@@ -6,8 +6,6 @@ const CreatureTypeShowpage = props => {
     const [creature, setCreature] = useState({})
     const [shouldRedirect, setShouldRedirect] = useState(false)
 
-    console.log(creature)
-
     let currentCreature = props.match.params.type
     let currentCreatureId = props.match.params.id
 
@@ -16,14 +14,14 @@ const CreatureTypeShowpage = props => {
     useEffect(() => {
         fetch(API_ENDPOINT)
         .then(response => {
-        if (response.ok) {
-        return response
-        } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage)
-        throw (error)
-        }
-    })
+            if (response.ok) {
+                return response
+            } else {
+                let errorMessage = `${response.status} (${response.statusText})`,
+                error = new Error(errorMessage)
+                throw (error)
+            }
+        })
         .then(response => response.json())
         .then(body => {
         setCreature(body)
@@ -35,15 +33,14 @@ const CreatureTypeShowpage = props => {
     }, [])
 
     if (shouldRedirect){
-       return <Redirect to="/creatures" />
+        return <Redirect to="/creatures" />
     }
 
-        return (
-        <div className="creature-show">
-            <CreatureInformation creature={creature} />
-        </div>
-        )
-
+    return (
+    <div className="creature-show">
+        <CreatureInformation creature={creature} />
+    </div>
+    )
 }
 
 export default CreatureTypeShowpage;

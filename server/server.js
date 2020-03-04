@@ -89,9 +89,11 @@ app.get("/api/v1/creature_types/:type/:id", (req, res) => {
         });
     })
     .catch(error => {
-      console.log("ERROR =====> ", error);
+      console.log("ERROR =====> ", error)
+    })
+})
 
-      app.post("/api/v1/applicants", (req, res) => {
+app.post("/api/v1/applicants", (req, res) => {
   const { name, phone_number, email, home_status } = req.body;
 
   const getCreatureID = 1; // waiting for component to be created for further edits ============
@@ -126,4 +128,4 @@ app.listen(3000, "0.0.0.0", () => {
   console.log("Server is listening...");
 });
 
-module.exports = app;
+module.exports = app
