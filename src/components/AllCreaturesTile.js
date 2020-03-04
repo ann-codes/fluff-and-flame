@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const AllCreaturesTile = props => {
-    // const
   return (
     <div>
       <Link to={`adoptable/${props.type}`}>

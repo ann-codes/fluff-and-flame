@@ -19,10 +19,6 @@ CREATE TABLE adoptable_creatures (
     type_id INTEGER REFERENCES creature_types(id) NOT NULL
 );
 
-<<<<<<< HEAD
-
-SELECT name, img_url, age, vaccination_status FROM adoptable_creatures;
-=======
 DROP TABLE IF EXISTS adoption_applications;
 CREATE TABLE adoption_applications (
   id SERIAL PRIMARY KEY,
@@ -33,4 +29,3 @@ CREATE TABLE adoption_applications (
   application_status VARCHAR(255),
   creature_id INTEGER REFERENCES adoptable_creatures(id) NOT NULL
 );
->>>>>>> 8287e82b46c4978dcf79a906826681c84b87e706

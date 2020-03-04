@@ -26,11 +26,6 @@ INSERT INTO adoptable_creatures(
     type_id
   )
 VALUES
-<<<<<<< HEAD
-    ('Nyan Nyan', 'https://upload.wikimedia.org/wikipedia/en/e/ed/Nyan_cat_250px_frame.PNG', 6, false, 'Was found at the end of a rainbow and is looking for a new sky home', 'adoption pending', 1),
-    ('Spyro', 'https://www.syfy.com/sites/syfy/files/styles/1200x680/public/2018/11/spyro_reignited.png', 7950, true, 'Fought many a battle now needs a happy home', 'can be adopted', 2),
-    ('Peter Pegasus', 'https://vignette.wikia.nocookie.net/disney/images/e/e7/Peter_Pegasus.jpg/revision/latest?cb=20180601060225', 2, 'no', 'Fell from the clouds and into your arms', 'can be adopted', 3 );
-=======
   (
     'Nyan Nyan',
     'https://upload.wikimedia.org/wikipedia/en/e/ed/Nyan_cat_250px_frame.PNG',
@@ -56,6 +51,15 @@ VALUES
     'no',
     'Fell from the clouds and into your arms',
     'can be adopted',
+    2
+  ),
+  (
+    'Blue Eyes White Dragon',
+    'https://vignette.wikia.nocookie.net/yugioh/images/7/7a/DMx214_BEWD.png/revision/latest?cb=20140819225434',
+    3000,
+    'yes',
+    'Released by its former owner due to aggressive nature but is actually quite fluffy',
+    'adoption pending',
     2
   );
 
@@ -84,4 +88,3 @@ VALUES
     'pending',
     1
   );
->>>>>>> 8287e82b46c4978dcf79a906826681c84b87e706

@@ -5,11 +5,10 @@ import AllCreaturesTile from '../components/AllCreaturesTile'
 
 const IndexCreature = props => {
   const [creatures, setCreatures] = useState([]);
-
-  const apiEndpoint = `/api/v1/adoptable/1` // hardcoded - update later
-  const fetchAdoptableCreatures = () => fetchData(apiEndpoint, setCreatures);
-  useEffect(fetchAdoptableCreatures, []);
-  console.log(creatures)
+  const byType = props.match.params.type;
+  const apiEndpoint = `/api/v1/adoptable/${byType}`;
+  const fetchCreatures = () => fetchData(apiEndpoint, setCreatures);
+  useEffect(fetchCreatures, []);
 
   const mapCreatures = creatures.map(creature => (
     <AllCreaturesTile
@@ -18,11 +17,11 @@ const IndexCreature = props => {
       name={creature.name}
       age={creature.age}
       vacStatus={creature.vaccination_status}
-      />
+    />
   ));
-  return (
+      return (
     <div>
-      <h3>All creatures</h3>
+      <h3>Fluffs and Flames</h3>
       {mapCreatures}
     </div>
   );

@@ -71,14 +71,14 @@ app.get("/api/v1/creature_types/:type", (req, res) => {
     });
 });
 
-<<<<<<< HEAD
 app.get("/api/v1/adoptable/:type", (req, res) => {
   const findType = req.params.type;
   pool
     .connect()
     .then(client => {
       client
-        .query(`SELECT name, img_url, age, vaccination_status FROM adoptable_creatures WHERE type_id = '${findType}'`)
+        .query(`SELECT adoptable_creatures.id AS id, adoptable_creatures.name AS name, adoptable_creatures.img_url AS img_url, adoptable_creatures.age AS age,
+        adoptable_creatures.vaccination_status AS vaccination_status, creature_types.type AS type_of_creature FROM adoptable_creatures JOIN creature_types ON creature_types.id = adoptable_creatures.type_id WHERE creature_types.type = '${findType}'`)
         .then(result => {
           const creatures = result.rows;
           if (creatures.length > 0) {
@@ -93,7 +93,6 @@ app.get("/api/v1/adoptable/:type", (req, res) => {
       console.log("ERROR =====> ", error);
     });
 });
-=======
 app.post("/api/v1/applicants", (req, res) => {
   const { name, phone_number, email, home_status } = req.body;
 
@@ -111,7 +110,6 @@ app.post("/api/v1/applicants", (req, res) => {
     });
 });
 
->>>>>>> 8287e82b46c4978dcf79a906826681c84b87e706
 // Express routes
 app.get("/", (req, res) => {
   res.redirect("/creatures");
