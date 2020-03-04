@@ -37,7 +37,7 @@ const CreatureTypeShowpage = props => {
     }
 
     return (
-    <div className="creature-show">
+    <div className="creature-show banana">
         <CreatureInformation creature={creature} />
     </div>
     )
