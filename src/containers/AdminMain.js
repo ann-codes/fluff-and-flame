@@ -9,8 +9,28 @@ const AdminMain = props => {
   const fetchApplicants = () => fetchData(apiEndpoint, setApplicants);
   useEffect(fetchApplicants, []);
 
-  console.log(applicants);
+  const [appDecision, setAppDecision] = useState({});
+  const handleChange = event => {
+    const { name, value, id, title } = event.currentTarget;
+    const cleanId = Number(id);
+    const cleanCreatureId = Number(title);
+    console.log(event.currentTarget.title);
+    setAppDecision({
+      ...appDecision,
+      [name]: value,
+      id: cleanId,
+      creature_id: cleanCreatureId
+    });
+  };
 
+  console.log("target", appDecision);
+
+  const submitDecision = event => {
+    event.preventDefault();
+    console.log(appDecision);
+  };
+
+  // will be making below into a component =================
   const mapApplicants = applicants.map(app => (
     <tr key={app.id}>
       <td>{app.id}</td>
@@ -19,10 +39,27 @@ const AdminMain = props => {
       <td>{app.email}</td>
       <td>{app.home_status}</td>
       <td>
-        <a href={`creatures/${app.creature_type}`} target="_blank">{app.creature_name}</a>
+        <a href={`creatures/${app.creature_type}`} target="_blank">
+          {app.creature_name}
+        </a>
       </td>
       <td>{app.adoption_status}</td>
-      <td>{app.application_status}</td>
+      <td>
+        <form onSubmit={submitDecision}>
+          <select
+            name="applications_status"
+            id={app.id}
+            title={app.creature_id}
+            value={appDecision.application_status}
+            onChange={handleChange}
+          >
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="denied">Denied</option>
+          </select>
+          <input className="button" type="submit" value="Submit" />
+        </form>
+      </td>
     </tr>
   ));
 
