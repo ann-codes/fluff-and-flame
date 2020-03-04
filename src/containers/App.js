@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch, BrowserRouter, Link } from "react-router-dom";
 import IndexTypes from "./IndexTypes";
 import IndexCreature from "./IndexCreature";
+import CreatureTypeShowpage from "../components/CreatureTypeShowpage";
 import AdminMain from "./AdminMain";
 
 const App = props => {
@@ -22,8 +23,12 @@ const App = props => {
         <Switch>
           <Route exact path="/creatures" component={IndexTypes} />
           <Route exact path="/creatures/:type" component={IndexCreature} />
+          <Route
+            exact
+            path="/creatures/:type/:id"
+            component={CreatureTypeShowpage}
+          />
           <Route exact path="/admin" component={AdminMain} />
-
         </Switch>
       </div>
     </BrowserRouter>

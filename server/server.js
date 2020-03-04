@@ -102,6 +102,28 @@ app.get("/api/v1/applicants", (req, res) => {
     });
 });
 
+app.get("/api/v1/creature_types/:type/:id", (req, res) => {
+  const findId = req.params.id;
+  const findType = req.params.type;
+  pool
+    .connect()
+    .then(client => {
+      client.query("select * from adoptable_creatures join creature_types on creature_types.id = adoptable_creatures.type_id where upper(creature_types.type)=upper($1) and adoptable_creatures.id=$2", [findType, findId])
+        .then(result => {
+          const creature = result.rows;
+          if (creature.length > 0) {
+            client.release();
+            res.json(creature[0]);
+          } else {
+            res.status(404).send("404 Creature Not Found!");
+          }
+        });
+    })
+    .catch(error => {
+      console.log("ERROR =====> ", error)
+    })
+})
+
 app.post("/api/v1/applicants", (req, res) => {
   const { name, phone_number, email, home_status } = req.body;
 
@@ -131,12 +153,17 @@ app.get("/", (req, res) => {
   res.redirect("/creatures");
 });
 
-app.get("*", (req, res) => {
+app.get("/creatures/:type/:id", (req, res) => {
+  
   res.render("home");
 });
+
+app.get('*', (req, res) => {
+  res.render("home")
+})
 
 app.listen(3000, "0.0.0.0", () => {
   console.log("Server is listening...");
 });
 
-module.exports = app;
+module.exports = app

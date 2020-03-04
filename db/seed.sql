@@ -18,7 +18,7 @@ VALUES
 
 INSERT INTO adoptable_creatures(
     name,
-    img_url,
+    creature_img,
     age,
     vaccination_status,
     adoption_story,
@@ -50,7 +50,7 @@ VALUES
     7950,
     'yes',
     'Fought many a battle now needs a happy home',
-    'available',
+    'can be adopted',
     2
   ),
   (
@@ -59,7 +59,7 @@ VALUES
     2,
     'no',
     'Fell from the clouds and into your arms',
-    'pending',
+    'can be adopted',
     3
   );
 
