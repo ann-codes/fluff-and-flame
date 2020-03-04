@@ -3,8 +3,12 @@
     max-width: 800px;
     margin: 20px auto;
     padding: 10px;
-  }
-  
-  .category-img {
-      width: 200px;
-  }
+}
+
+.category-img {
+    width: 200px;
+}
+
+.test {
+    color: black;
+}
