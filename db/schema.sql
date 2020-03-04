@@ -5,7 +5,6 @@ CREATE TABLE creature_types (
     description TEXT,
     img_url VARCHAR(255)
 );
-
 CREATE UNIQUE INDEX index ON creature_types(type);
 
 DROP TABLE IF EXISTS adoptable_creatures;
@@ -20,5 +19,18 @@ CREATE TABLE adoptable_creatures (
     type_id INTEGER REFERENCES creature_types(id) NOT NULL
 );
 
+<<<<<<< HEAD
 
 SELECT name, img_url, age, vaccination_status FROM adoptable_creatures;
+=======
+DROP TABLE IF EXISTS adoption_applications;
+CREATE TABLE adoption_applications (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  home_status VARCHAR(255) NOT NULL,
+  application_status VARCHAR(255),
+  creature_id INTEGER REFERENCES adoptable_creatures(id) NOT NULL
+);
+>>>>>>> 8287e82b46c4978dcf79a906826681c84b87e706
