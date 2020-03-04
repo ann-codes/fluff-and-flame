@@ -32,7 +32,16 @@ VALUES
     6,
     'no',
     'Was found at the end of a rainbow and is looking for a new sky home',
-    'adoption pending',
+    'available',
+    1
+  ),
+  (
+    'Bob Nyan',
+    'https://s3.amazonaws.com/colorslive/jpg_512x512/377224-lglLt_mui26xjl6y.jpg',
+    21,
+    'no',
+    'A Nyan cat in the shape of a burger',
+    'available',
     1
   ),
   (
@@ -41,8 +50,8 @@ VALUES
     7950,
     'yes',
     'Fought many a battle now needs a happy home',
-    'can be adopted',
-    1
+    'available',
+    2
   ),
   (
     'Peter Pegasus',
@@ -50,8 +59,8 @@ VALUES
     2,
     'no',
     'Fell from the clouds and into your arms',
-    'can be adopted',
-    2
+    'pending',
+    3
   );
 
 INSERT INTO adoption_applications(
@@ -69,7 +78,7 @@ VALUES
     'bobs@burgers.com',
     'own',
     'pending',
-    1
+    2
   ),
   (
     'A Person',

@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch, BrowserRouter, Link } from "react-router-dom";
 import IndexTypes from "./IndexTypes";
 import IndexCreature from "./IndexCreature";
+import AdminMain from "./AdminMain";
 
 const App = props => {
   return (
@@ -13,11 +14,16 @@ const App = props => {
             <li>
               <Link to="/creatures">HOME</Link>
             </li>
+            <li>
+              <Link to="/admin">ADMIN LOGIN</Link>
+            </li>
           </ul>
         </nav>
         <Switch>
           <Route exact path="/creatures" component={IndexTypes} />
           <Route exact path="/creatures/:type" component={IndexCreature} />
+          <Route exact path="/admin" component={AdminMain} />
+
         </Switch>
       </div>
     </BrowserRouter>

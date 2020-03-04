@@ -71,11 +71,49 @@ app.get("/api/v1/creature_types/:type", (req, res) => {
     });
 });
 
+app.get("/api/v1/applicants", (req, res) => {
+  pool
+    .connect()
+    .then(client => {
+      client
+        .query(
+          `SELECT adoption_applications.id AS id, 
+          adoption_applications.name AS name,
+          adoption_applications.phone_number AS phone_number,
+          adoption_applications.email AS email,
+          adoption_applications.home_status AS home_status,
+          adoption_applications.application_status AS application_status,
+          adoptable_creatures.id AS creature_id,
+          adoptable_creatures.name AS creature_name,
+          adoptable_creatures.adoption_status AS adoption_status,
+          creature_types.type AS creature_type
+          FROM adoption_applications JOIN adoptable_creatures 
+          ON adoption_applications.creature_id = adoptable_creatures.id
+          JOIN creature_types ON creature_types.id = adoptable_creatures.type_id;`
+        )
+        .then(result => {
+          const creatures = result.rows;
+          client.release();
+          res.json(creatures);
+        });
+    })
+    .catch(error => {
+      console.log("ERROR =====> ", error);
+    });
+});
+
 app.post("/api/v1/applicants", (req, res) => {
   const { name, phone_number, email, home_status } = req.body;
 
   const getCreatureID = 1; // waiting for component to be created for further edits ============
-  console.log([name, phone_number, email, home_status, "pending", getCreatureID])
+  console.log([
+    name,
+    phone_number,
+    email,
+    home_status,
+    "pending",
+    getCreatureID
+  ]);
 
   pool
     .query(
