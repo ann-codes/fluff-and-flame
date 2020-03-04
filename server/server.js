@@ -1,50 +1,53 @@
-const express = require("express")
-const path = require("path")
-const logger = require("morgan")
-const bodyParser = require("body-parser")
-const hbsMiddleware = require("express-handlebars")
-const fs = require("fs")
-const _ = require("lodash")
-const createError = require("http-errors")
+const express = require("express");
+const path = require("path");
+const logger = require("morgan");
+const bodyParser = require("body-parser");
+const hbsMiddleware = require("express-handlebars");
+const fs = require("fs");
+const _ = require("lodash");
+const createError = require("http-errors");
 
-const app = express()
+const app = express();
 
-app.set("views", path.join(__dirname, "../views"))
+app.set("views", path.join(__dirname, "../views"));
 app.engine(
   "hbs",
   hbsMiddleware({
     defaultLayout: "default",
     extname: ".hbs"
   })
-)
+);
 
-app.set("view engine", "hbs")
+app.set("view engine", "hbs");
 
-app.use(logger("dev"))
-app.use(express.json())
+app.use(logger("dev"));
+app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "../public")))
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, "../public")));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-const { Pool } = require("pg")
+const { Pool } = require("pg");
 
 const pool = new Pool({
   connectionString: "postgres://postgres:password@127.0.0.1:5432/fluff_flame"
-})
+});
 
 // API Endpoints
 app.get("/api/v1/creature_types", (req, res) => {
-  pool.connect().then(client => {
-    client.query("SELECT * FROM creature_types").then(result => {
-      const creatures = result.rows;
-      client.release();
-      res.json(creatures);
+  pool
+    .connect()
+    .then(client => {
+      client.query("SELECT * FROM creature_types").then(result => {
+        const creatures = result.rows;
+        client.release();
+        res.json(creatures);
+      });
+    })
+    .catch(error => {
+      console.log("ERROR =====> ", error);
     });
-  }).catch(error => {
-    console.log("ERROR =====> ", error);
-  });
-})
+});
 
 app.get("/api/v1/creature_types/:type", (req, res) => {
   const findType = req.params.type;
@@ -87,6 +90,20 @@ app.get("/api/v1/creature_types/:type/:id", (req, res) => {
     })
     .catch(error => {
       console.log("ERROR =====> ", error);
+app.post("/api/v1/applicants", (req, res) => {
+  const { name, phone_number, email, home_status } = req.body;
+
+  const getCreatureID = 1; // waiting for component to be created for further edits ============
+  console.log([name, phone_number, email, home_status, "pending", getCreatureID])
+
+  pool
+    .query(
+      "INSERT INTO adoption_applications (name, phone_number, email, home_status, application_status, creature_id) VALUES ($1, $2, $3, $4, $5, $6)",
+      [name, phone_number, email, home_status, "pending", getCreatureID]
+    )
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(500);
     });
 });
 
@@ -105,7 +122,7 @@ app.get('*', (req, res) => {
 })
 
 app.listen(3000, "0.0.0.0", () => {
-  console.log("Server is listening...")
-})
+  console.log("Server is listening...");
+});
 
-module.exports = app
+module.exports = app;
