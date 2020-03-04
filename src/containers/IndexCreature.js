@@ -17,6 +17,8 @@ const IndexCreature = props => {
       name={creature.name}
       age={creature.age}
       vacStatus={creature.vaccination_status}
+      type={creature.type_of_creature}
+      creatureId={creature.id}
     />
   ));
       return (
