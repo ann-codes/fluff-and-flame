@@ -11,17 +11,24 @@ const AdminMain = props => {
 
   const [appDecision, setAppDecision] = useState({});
   const handleChange = event => {
-    const { name, value, id, title } = event.currentTarget;
-    const cleanId = Number(id);
-    const cleanCreatureId = Number(title);
-    console.log(event.currentTarget.title);
+    const { name, value, id } = event.currentTarget;
+    const creature_id = event.currentTarget.getAttribute("data-creature_id");
+
     setAppDecision({
       ...appDecision,
       [name]: value,
-      id: cleanId,
-      creature_id: cleanCreatureId
+      id: Number(id),
+      creature_id: Number(creature_id)
     });
   };
+
+  const postQueryAdopted = `WITH app_decision 
+  AS (UPDATE adoption_applications SET application_status = 'approved' WHERE id = 1)
+  UPDATE adoptable_creatures SET adoption_status = 'adopted' WHERE id = 2`
+
+  const postQueryDenied = `WITH app_decision 
+  AS (UPDATE adoption_applications SET application_status = 'approved' WHERE id = 1)
+  UPDATE adoptable_creatures SET adoption_status = 'adopted' WHERE id = 2`
 
   console.log("target", appDecision);
 
@@ -45,20 +52,24 @@ const AdminMain = props => {
       </td>
       <td>{app.adoption_status}</td>
       <td>
-        <form onSubmit={submitDecision}>
-          <select
-            name="applications_status"
-            id={app.id}
-            title={app.creature_id}
-            value={appDecision.application_status}
-            onChange={handleChange}
-          >
-            <option value="pending">Pending</option>
-            <option value="approved">Approved</option>
-            <option value="denied">Denied</option>
-          </select>
-          <input className="button" type="submit" value="Submit" />
-        </form>
+        {app.application_status === "pending" ? (
+          <form onSubmit={submitDecision}>
+            <select
+              name="applications_status"
+              id={app.id}
+              value={appDecision.application_status}
+              data-creature_id={app.creature_id}
+              onChange={handleChange}
+            >
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="denied">Denied</option>
+            </select>
+            <input className="button" type="submit" value="Submit" />
+          </form>
+        ) : (
+          `${app.application_status}`
+        )}
       </td>
     </tr>
   ));
