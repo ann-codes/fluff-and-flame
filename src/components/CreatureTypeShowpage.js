@@ -24,7 +24,7 @@ const CreatureTypeShowpage = props => {
         })
         .then(response => response.json())
         .then(body => {
-        setCreature(body)
+            setCreature(body)
         })
         .catch(error => {
             setShouldRedirect(true)
