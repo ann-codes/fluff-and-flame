@@ -90,6 +90,7 @@ app.get("/api/v1/creature_types/:type/:id", (req, res) => {
     })
     .catch(error => {
       console.log("ERROR =====> ", error);
+      
 app.post("/api/v1/applicants", (req, res) => {
   const { name, phone_number, email, home_status } = req.body;
 
