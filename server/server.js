@@ -52,7 +52,7 @@ app.get("/api/v1/creature_types/:type", (req, res) => {
     .connect()
     .then(client => {
       client
-        .query(`SELECT name, img_url, age, vaccination_status FROM adoptable_creatures WHERE type_id = '${findType}'`)
+        .query(`SELECT * FROM creature_types WHERE type = '${findType}'`)
         .then(result => {
           const creatures = result.rows;
           if (creatures.length > 0) {
@@ -68,6 +68,27 @@ app.get("/api/v1/creature_types/:type", (req, res) => {
     });
 });
 
+app.get("/api/v1/adoptable/:type", (req, res) => {
+  const findType = req.params.type;
+  pool
+    .connect()
+    .then(client => {
+      client
+        .query(`SELECT name, img_url, age, vaccination_status FROM adoptable_creatures WHERE type_id = '${findType}'`)
+        .then(result => {
+          const creatures = result.rows;
+          if (creatures.length > 0) {
+            client.release();
+            res.json(creatures);
+          } else {
+            res.status(404).send("404 Creature Type Not Found!");
+          }
+        });
+    })
+    .catch(error => {
+      console.log("ERROR =====> ", error);
+    });
+});
 // Express routes
 app.get("/", (req, res) => {
   res.redirect("/creatures");
