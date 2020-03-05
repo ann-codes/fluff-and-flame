@@ -9,8 +9,6 @@ const IndexTypes = props => {
   const fetchCreatureTypes = () => fetchData(apiEndpoint, setCreatureTypes);
   useEffect(fetchCreatureTypes, []);
 
-  // console.log(creatureTypes);
-
   const mapTypes = creatureTypes.map(creature => (
     <CardType
       key={creature.id}

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-
 import fetchData from "../functions/fetchData";
 import AllCreaturesTile from '../components/AllCreaturesTile'
 
