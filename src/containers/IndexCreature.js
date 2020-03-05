@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-
 import fetchData from "../functions/fetchData";
 import AllCreaturesTile from '../components/AllCreaturesTile'
 
@@ -17,9 +16,11 @@ const IndexCreature = props => {
       name={creature.name}
       age={creature.age}
       vacStatus={creature.vaccination_status}
+      type={creature.type_of_creature}
+      creatureId={creature.id}
     />
   ));
-      return (
+  return (
     <div>
       <h3>Fluffs and Flames</h3>
       {mapCreatures}

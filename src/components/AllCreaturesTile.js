@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const AllCreaturesTile = props => {
   return (
     <div>
-      <Link to={`adoptable/${props.type}`}>
-      <h3>{props.name}</h3>
+      <Link to={`${props.type}/${props.creatureId}`}>
+      <h2>{props.name}</h2>
       <img className="category-img" src={props.imgUrl} alt={props.key} />
       </Link>
       <p>Age: {props.age}</p>
