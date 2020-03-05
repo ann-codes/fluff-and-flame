@@ -36,7 +36,7 @@ VALUES
     1
   ),
   (
-    'Bob Nyan',
+    'Bob Nyanley',
     'https://s3.amazonaws.com/colorslive/jpg_512x512/377224-lglLt_mui26xjl6y.jpg',
     21,
     'no',
@@ -50,7 +50,7 @@ VALUES
     7950,
     'yes',
     'Fought many a battle now needs a happy home',
-    'can be adopted',
+    'available',
     2
   ),
   (
@@ -59,10 +59,18 @@ VALUES
     2,
     'no',
     'Fell from the clouds and into your arms',
-    'can be adopted',
+    'available',
     3
+  ),(
+    'Yoshi',
+    'https://www.mariowiki.com/images/thumb/4/4d/Yoshi_-_Mario_Party_10.png/784px-Yoshi_-_Mario_Party_10.png',
+    38,
+    'yes',
+    'Is really a dinosaur, but whatever',
+    'adopted',
+    2
   );
-
+  
 INSERT INTO adoption_applications(
     name,
     phone_number,
@@ -81,10 +89,26 @@ VALUES
     2
   ),
   (
-    'A Person',
-    '617-666-8901',
-    'a@person.com',
-    'rent',
+    'A BAD OWNER',
+    '617-666-6666',
+    'animal@abuser.com',
+    'own',
     'pending',
-    1
+    2
+  ),
+  (
+    'Princess Peach',
+    '617-666-8901',
+    'princess@peach.com',
+    'rent',
+    'approved',
+    5
+  ),
+  (
+    'Finn',
+    '617-666-8888',
+    'baby@nephew.com',
+    'own',
+    'pending',
+    3
   );
