@@ -1,17 +1,30 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React from 'react'
+import { BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useRouteMatch,
+    useParams
+}   from "react-router-dom";
 import IndexTypes from "../containers/IndexTypes"
 import IndexCreature from "../containers/IndexCreature"
-import
+import CreatureTypeShowpage from '../components/CreatureTypeShowpage'
 
-const App = props => {
+const Navigation = props => {
   return (
-    <BrowserRouter>
+    <Router>
       <div className="container">
         <nav>
           <ul>
-            <li>Navigation</li>
             <li>
-              <Link to="/creatures">HOME</Link>
+              <Link to="/creatures">home</Link>
+            </li>
+            <li>
+              {/* add a placeholder for this */}
+              <Link to="/creatures/">our magical creatures</Link>
+            </li>
+            <li>
+              <Link to="/creatures/:type/:id"></Link>
             </li>
           </ul>
         </nav>
@@ -21,16 +34,9 @@ const App = props => {
           <Route exact path="/creatures/:type/:id" component={CreatureTypeShowpage} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 };
 
 export default Navigation
 
-// fix Nav then change App
-// New changes
-// import Navigation from "../components/Navigation"
-
-// const App = props => {
-//   return (
-//     <Navigation />
