@@ -99,22 +99,18 @@ app.get("/api/v1/creature_types/:type/:id", (req, res) => {
   pool
     .connect()
     .then(client => {
-<<<<<<< HEAD
-      client.query("select * from adoptable_creatures join creature_types on creature_types.id = adoptable_creatures.type_id where upper(creature_types.type)=upper($1) and adoptable_creatures.id=$2", [findType, findId])
-=======
       client
         .query(
-          `SELECT adoptable_creatures.id AS id, 
-          adoptable_creatures.name AS name, 
-          adoptable_creatures.creature_img  AS img_url, 
+          `SELECT adoptable_creatures.id AS id,
+          adoptable_creatures.name AS name,
+          adoptable_creatures.creature_img  AS img_url,
           adoptable_creatures.age AS age,
-          adoptable_creatures.vaccination_status AS vaccination_status, 
-          creature_types.type AS type_of_creature 
-          FROM adoptable_creatures JOIN creature_types 
-          ON creature_types.id = adoptable_creatures.type_id 
+          adoptable_creatures.vaccination_status AS vaccination_status,
+          creature_types.type AS type_of_creature
+          FROM adoptable_creatures JOIN creature_types
+          ON creature_types.id = adoptable_creatures.type_id
           WHERE creature_types.type = '${findType}'`
         )
->>>>>>> d2e1c18ce5a945da590760ae42757b4a1e1d3cbd
         .then(result => {
           const creature = result.rows;
           if (creature.length > 0) {
@@ -129,16 +125,6 @@ app.get("/api/v1/creature_types/:type/:id", (req, res) => {
       console.log("ERROR =====> ", error);
     });
 });
-<<<<<<< HEAD
-
-
-app.post("/api/v1/applicants", (req, res) => {
-  const { name, phone_number, email, home_status } = req.body;
-
-  const getCreatureID = 1; // waiting for component to be created for further edits ============
-  console.log([name, phone_number, email, home_status, "pending", getCreatureID])
-=======
->>>>>>> d2e1c18ce5a945da590760ae42757b4a1e1d3cbd
 
 app.get("/api/v1/creature_types/:type/:id", (req, res) => {
   const findId = req.params.id;
@@ -231,14 +217,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/creatures/:type/:id", (req, res) => {
-<<<<<<< HEAD
-
-=======
   res.render("home");
 });
 
 app.get("*", (req, res) => {
->>>>>>> d2e1c18ce5a945da590760ae42757b4a1e1d3cbd
   res.render("home");
 });
 

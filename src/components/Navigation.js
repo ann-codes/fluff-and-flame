@@ -15,7 +15,7 @@ const Navigation = props => {
     <Router>
       <div className="container">
         <nav>
-          <ul>
+          <ul className="menu">
             <li>
               <Link to="/creatures">home</Link>
             </li>
@@ -24,7 +24,7 @@ const Navigation = props => {
               <Link to="/creatures/">our magical creatures</Link>
             </li>
             <li>
-              <Link to="/creatures/:type/:id"></Link>
+              <Link to="/creatures/:type/:id">surrender a creature</Link>
             </li>
           </ul>
         </nav>

@@ -1,7 +1,12 @@
 /* your styles, here */
 body {
-    font-family:
+    font-family:'Carrois Gothic', 'Raleway', sans-serif
 }
+
+.nav {
+
+}
+
 .container {
   max-width: 800px;
   margin: 20px auto;
@@ -13,9 +18,6 @@ body {
 }
 
 .test {
-<<<<<<< HEAD
-    color: black;
-=======
   color: black;
 }
 
@@ -29,5 +31,4 @@ body {
   100% {
     opacity: 1;
   }
->>>>>>> d2e1c18ce5a945da590760ae42757b4a1e1d3cbd
 }
