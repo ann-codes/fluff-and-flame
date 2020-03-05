@@ -14,7 +14,7 @@ const Navigation = props => {
   return (
     <Router>
       <div className="container">
-        <nav>
+        <nav className="nav">
           <ul className="menu">
             <li>
               <Link to="/creatures">home</Link>
@@ -28,6 +28,7 @@ const Navigation = props => {
             </li>
           </ul>
         </nav>
+        {/* add a footer */}
         <Switch>
           <Route exact path="/creatures" component={IndexTypes} />
           <Route exact path="/creatures/:type" component={IndexCreature} />
