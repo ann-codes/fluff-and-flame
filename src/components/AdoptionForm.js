@@ -93,7 +93,7 @@ const AdoptionForm = props => {
         <input className="button" type="submit" value="Submit" />
         <button className="button" type="button" onClick={clearForm}>Clear</button>
       </div>
-      <div>* All feilds required.</div>
+      <div>* All fields required.</div>
     </form>
   );
 };

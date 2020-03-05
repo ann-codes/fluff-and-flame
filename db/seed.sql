@@ -51,6 +51,15 @@ VALUES
     'no',
     'Fell from the clouds and into your arms',
     'can be adopted',
+    2
+  ),
+  (
+    'Blue Eyes White Dragon',
+    'https://vignette.wikia.nocookie.net/yugioh/images/7/7a/DMx214_BEWD.png/revision/latest?cb=20140819225434',
+    3000,
+    'yes',
+    'Released by its former owner due to aggressive nature but is actually quite fluffy',
+    'adoption pending',
     3
   );
 
