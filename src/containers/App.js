@@ -19,7 +19,11 @@ const App = props => {
         <Switch>
           <Route exact path="/creatures" component={IndexTypes} />
           <Route exact path="/creatures/:type" component={IndexCreature} />
-          <Route exact path="/creatures/:type/:id" component={CreatureTypeShowpage} />
+          <Route
+            exact
+            path="/creatures/:type/:id"
+            component={CreatureTypeShowpage}
+          />
         </Switch>
       </div>
     </BrowserRouter>

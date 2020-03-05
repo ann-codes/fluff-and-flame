@@ -9,7 +9,8 @@ const AdoptionForm = props => {
     name: "",
     phoneNumber: "",
     email: "",
-    homeStatus: ""
+    homeStatus: "",
+    creature_id: props.creatureId
   };
 
   const [newApplicant, setNewApplicant] = useState(defaultApplicant);
@@ -35,7 +36,8 @@ const AdoptionForm = props => {
         name: newApplicant.name,
         phone_number: newApplicant.phoneNumber,
         email: newApplicant.email,
-        home_status: newApplicant.homeStatus
+        home_status: newApplicant.homeStatus,
+        creature_id: newApplicant.creature_id
       };
       postData(postAPIpath, payload);
       clearForm();
