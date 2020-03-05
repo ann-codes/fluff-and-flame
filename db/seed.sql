@@ -32,7 +32,16 @@ VALUES
     6,
     'no',
     'Was found at the end of a rainbow and is looking for a new sky home',
-    'adoption pending',
+    'available',
+    1
+  ),
+  (
+    'Bob Nyanley',
+    'https://s3.amazonaws.com/colorslive/jpg_512x512/377224-lglLt_mui26xjl6y.jpg',
+    21,
+    'no',
+    'A Nyan cat in the shape of a burger',
+    'available',
     1
   ),
   (
@@ -41,7 +50,7 @@ VALUES
     7950,
     'yes',
     'Fought many a battle now needs a happy home',
-    'can be adopted',
+    'available',
     2
   ),
   (
@@ -61,8 +70,16 @@ VALUES
     'Released by its former owner due to aggressive nature but is actually quite fluffy',
     'adoption pending',
     3
+  ),(
+    'Yoshi',
+    'https://www.mariowiki.com/images/thumb/4/4d/Yoshi_-_Mario_Party_10.png/784px-Yoshi_-_Mario_Party_10.png',
+    38,
+    'yes',
+    'Is really a dinosaur, but whatever',
+    'adopted',
+    2
   );
-
+  
 INSERT INTO adoption_applications(
     name,
     phone_number,
@@ -78,13 +95,29 @@ VALUES
     'bobs@burgers.com',
     'own',
     'pending',
-    1
+    2
   ),
   (
-    'A Person',
+    'A BAD OWNER',
+    '617-666-6666',
+    'animal@abuser.com',
+    'own',
+    'pending',
+    2
+  ),
+  (
+    'Princess Peach',
     '617-666-8901',
-    'a@person.com',
+    'princess@peach.com',
     'rent',
     'pending',
-    1
+    6
+  ),
+  (
+    'Finn',
+    '617-666-8888',
+    'baby@nephew.com',
+    'own',
+    'pending',
+    3
   );
