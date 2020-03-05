@@ -71,6 +71,38 @@ app.get("/api/v1/creature_types/:type", (req, res) => {
     });
 });
 
+app.get("/api/v1/adoptable/:type", (req, res) => {
+  const findType = req.params.type;
+  pool
+    .connect()
+    .then(client => {
+      client
+        .query(
+          `SELECT adoptable_creatures.id AS id, 
+          adoptable_creatures.name AS name, 
+          adoptable_creatures.creature_img  AS img_url, 
+          adoptable_creatures.age AS age,
+          adoptable_creatures.vaccination_status AS vaccination_status, 
+          creature_types.type AS type_of_creature 
+          FROM adoptable_creatures JOIN creature_types 
+          ON creature_types.id = adoptable_creatures.type_id 
+          WHERE creature_types.type = '${findType}'`
+        )
+        .then(result => {
+          const creatures = result.rows;
+          if (creatures.length > 0) {
+            client.release();
+            res.json(creatures);
+          } else {
+            res.status(404).send("404 Creature Type Not Found!");
+          }
+        });
+    })
+    .catch(error => {
+      console.log("ERROR =====> ", error);
+    });
+});
+
 app.get("/api/v1/creature_types/:type/:id", (req, res) => {
   const findId = req.params.id;
   const findType = req.params.type;
@@ -100,38 +132,6 @@ app.get("/api/v1/creature_types/:type/:id", (req, res) => {
           } else {
             res.status(404).send("404 Creature Not Found!");
           }
-        });
-    })
-    .catch(error => {
-      console.log("ERROR =====> ", error);
-    });
-});
-
-app.get("/api/v1/applicants", (req, res) => {
-  pool
-    .connect()
-    .then(client => {
-      client
-        .query(
-          `SELECT adoption_applications.id AS id, 
-          adoption_applications.name AS name,
-          adoption_applications.phone_number AS phone_number,
-          adoption_applications.email AS email,
-          adoption_applications.home_status AS home_status,
-          adoption_applications.application_status AS application_status,
-          adoptable_creatures.id AS creature_id,
-          adoptable_creatures.name AS creature_name,
-          adoptable_creatures.adoption_status AS adoption_status,
-          creature_types.type AS creature_type
-          FROM adoption_applications JOIN adoptable_creatures 
-          ON adoption_applications.creature_id = adoptable_creatures.id
-          JOIN creature_types ON creature_types.id = adoptable_creatures.type_id
-          ORDER BY adoptable_creatures.id, adoption_applications.id`
-        )
-        .then(result => {
-          const creatures = result.rows;
-          client.release();
-          res.json(creatures);
         });
     })
     .catch(error => {
