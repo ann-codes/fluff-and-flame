@@ -77,7 +77,21 @@ app.get("/api/v1/creature_types/:type/:id", (req, res) => {
   pool
     .connect()
     .then(client => {
-      client.query("select * from adoptable_creatures join creature_types on creature_types.id = adoptable_creatures.type_id where upper(creature_types.type)=upper($1) and adoptable_creatures.id=$2", [findType, findId])
+      client
+        .query(
+          `SELECT adoptable_creatures.id AS id,
+          adoptable_creatures.name AS name,
+          adoptable_creatures.creature_img AS creature_img,
+          adoptable_creatures.age AS age,
+          adoptable_creatures.vaccination_status AS vaccination_status,
+          adoptable_creatures.adoption_story AS adoption_story,
+          adoptable_creatures.type_id AS type_id,
+          creature_types.type AS type
+          FROM adoptable_creatures
+          JOIN creature_types ON adoptable_creatures.type_id = creature_types.id
+          WHERE creature_types.type = $1 AND adoptable_creatures.id = $2;`,
+          [findType, findId]
+        )
         .then(result => {
           const creature = result.rows;
           if (creature.length > 0) {
@@ -89,25 +103,89 @@ app.get("/api/v1/creature_types/:type/:id", (req, res) => {
         });
     })
     .catch(error => {
-      console.log("ERROR =====> ", error)
+      console.log("ERROR =====> ", error);
+    });
+});
+
+app.get("/api/v1/applicants", (req, res) => {
+  pool
+    .connect()
+    .then(client => {
+      client
+        .query(
+          `SELECT adoption_applications.id AS id, 
+          adoption_applications.name AS name,
+          adoption_applications.phone_number AS phone_number,
+          adoption_applications.email AS email,
+          adoption_applications.home_status AS home_status,
+          adoption_applications.application_status AS application_status,
+          adoptable_creatures.id AS creature_id,
+          adoptable_creatures.name AS creature_name,
+          adoptable_creatures.adoption_status AS adoption_status,
+          creature_types.type AS creature_type
+          FROM adoption_applications JOIN adoptable_creatures 
+          ON adoption_applications.creature_id = adoptable_creatures.id
+          JOIN creature_types ON creature_types.id = adoptable_creatures.type_id
+          ORDER BY adoptable_creatures.id, adoption_applications.id`
+        )
+        .then(result => {
+          const creatures = result.rows;
+          client.release();
+          res.json(creatures);
+        });
     })
-})
+    .catch(error => {
+      console.log("ERROR =====> ", error);
+    });
+});
 
 app.post("/api/v1/applicants", (req, res) => {
-  const { name, phone_number, email, home_status } = req.body;
+  const { name, phone_number, email, home_status, creature_id } = req.body;
+  const queryString =
+    "INSERT INTO adoption_applications (name, phone_number, email, home_status, application_status, creature_id) VALUES ($1, $2, $3, $4, $5, $6)";
+  const values = [
+    name,
+    phone_number,
+    email,
+    home_status,
+    "pending",
+    creature_id
+  ];
 
-  const getCreatureID = 1; // waiting for component to be created for further edits ============
-  console.log([name, phone_number, email, home_status, "pending", getCreatureID])
+  pool.query(queryString, values).catch(err => {
+    console.log(err);
+    res.sendStatus(500);
+  });
+});
 
-  pool
-    .query(
-      "INSERT INTO adoption_applications (name, phone_number, email, home_status, application_status, creature_id) VALUES ($1, $2, $3, $4, $5, $6)",
-      [name, phone_number, email, home_status, "pending", getCreatureID]
-    )
-    .catch(err => {
+app.post("/api/v1/applicants/decision", (req, res) => {
+  const { app_decision, app_id, creature_id } = req.body;
+  let postQuery = "";
+  let values = [];
+  if (app_decision === "approved") {
+    postQuery = `WITH app_decision AS (UPDATE adoption_applications SET application_status = 'approved' WHERE id = $1)
+    UPDATE adoptable_creatures SET adoption_status = 'adopted' WHERE id = $2`;
+    values = [app_id, creature_id];
+    pool
+      .query(postQuery, values)
+      .then(again =>
+        pool.query(
+          "UPDATE adoption_applications SET application_status = 'denied' WHERE id != $1 AND creature_id = $2",
+          values
+        )
+      )
+      .catch(err => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  } else if (app_decision === "denied") {
+    postQuery = `UPDATE adoption_applications SET application_status = 'denied' WHERE id = $1`;
+    values = [app_id];
+    pool.query(postQuery, values).catch(err => {
       console.log(err);
       res.sendStatus(500);
     });
+  }
 });
 
 // Express routes
@@ -116,16 +194,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/creatures/:type/:id", (req, res) => {
-  
   res.render("home");
 });
 
-app.get('*', (req, res) => {
-  res.render("home")
-})
+app.get("*", (req, res) => {
+  res.render("home");
+});
 
 app.listen(3000, "0.0.0.0", () => {
   console.log("Server is listening...");
 });
 
-module.exports = app
+module.exports = app;

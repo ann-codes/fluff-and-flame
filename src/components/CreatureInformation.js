@@ -1,4 +1,5 @@
 import React from "react";
+import AdoptionFormButton from "./AdoptionFormButton";
 
 const CreatureInformation = props => {
     let vaccination
@@ -15,6 +16,7 @@ const CreatureInformation = props => {
             <p>Age:{props.creature.age}</p>
             <p>Vaccination Status: {vaccination}</p>
             <p>Creature Story: {props.creature.adoption_story}</p>
+            <AdoptionFormButton creatureId={props.creature.id} />
         </div>
     );
 };
