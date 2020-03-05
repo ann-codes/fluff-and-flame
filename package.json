@@ -9,8 +9,8 @@
     "dev:client": "node_modules/.bin/webpack-dev-server --host 0.0.0.0",
     "webpack": "node_modules/.bin/webpack --config ./webpack.config.js",
     "test": "./node_modules/.bin/jest",
-    "db:import": "psql adopt_a_pet < db/schema.sql",
-    "db:seed": "psql adopt_a_pet < db/seed.sql"
+    "db:import": "psql fluff_flame < db/schema.sql",
+    "db:seed": "psql fluff_flame < db/seed.sql"
   },
   "author": "",
   "license": "ISC",

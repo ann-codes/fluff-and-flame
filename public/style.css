@@ -6,9 +6,21 @@
 }
 
 .category-img {
-    width: 200px;
+  width: 200px;
 }
 
 .test {
-    color: black;
+  color: black;
+}
+
+.fade-in {
+  animation: fadeIn ease 4s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

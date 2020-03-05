@@ -71,6 +71,38 @@ app.get("/api/v1/creature_types/:type", (req, res) => {
     });
 });
 
+app.get("/api/v1/adoptable/:type", (req, res) => {
+  const findType = req.params.type;
+  pool
+    .connect()
+    .then(client => {
+      client
+        .query(
+          `SELECT adoptable_creatures.id AS id, 
+          adoptable_creatures.name AS name, 
+          adoptable_creatures.creature_img  AS img_url, 
+          adoptable_creatures.age AS age,
+          adoptable_creatures.vaccination_status AS vaccination_status, 
+          creature_types.type AS type_of_creature 
+          FROM adoptable_creatures JOIN creature_types 
+          ON creature_types.id = adoptable_creatures.type_id 
+          WHERE creature_types.type = '${findType}'`
+        )
+        .then(result => {
+          const creatures = result.rows;
+          if (creatures.length > 0) {
+            client.release();
+            res.json(creatures);
+          } else {
+            res.status(404).send("404 Creature Type Not Found!");
+          }
+        });
+    })
+    .catch(error => {
+      console.log("ERROR =====> ", error);
+    });
+});
+
 app.get("/api/v1/creature_types/:type/:id", (req, res) => {
   const findId = req.params.id;
   const findType = req.params.type;
@@ -79,7 +111,17 @@ app.get("/api/v1/creature_types/:type/:id", (req, res) => {
     .then(client => {
       client
         .query(
-          "select * from adoptable_creatures join creature_types on creature_types.id = adoptable_creatures.type_id where upper(creature_types.type)=upper($1) and adoptable_creatures.id=$2",
+          `SELECT adoptable_creatures.id AS id,
+          adoptable_creatures.name AS name,
+          adoptable_creatures.creature_img AS creature_img,
+          adoptable_creatures.age AS age,
+          adoptable_creatures.vaccination_status AS vaccination_status,
+          adoptable_creatures.adoption_story AS adoption_story,
+          adoptable_creatures.type_id AS type_id,
+          creature_types.type AS type
+          FROM adoptable_creatures
+          JOIN creature_types ON adoptable_creatures.type_id = creature_types.id
+          WHERE creature_types.type = $1 AND adoptable_creatures.id = $2;`,
           [findType, findId]
         )
         .then(result => {
@@ -130,18 +172,7 @@ app.get("/api/v1/applicants", (req, res) => {
 });
 
 app.post("/api/v1/applicants", (req, res) => {
-  const { name, phone_number, email, home_status } = req.body;
-
-  const getCreatureID = 1; // waiting for component to be created for further edits ============
-  console.log([
-    name,
-    phone_number,
-    email,
-    home_status,
-    "pending",
-    getCreatureID
-  ]);
-
+  const { name, phone_number, email, home_status, creature_id } = req.body;
   const queryString =
     "INSERT INTO adoption_applications (name, phone_number, email, home_status, application_status, creature_id) VALUES ($1, $2, $3, $4, $5, $6)";
   const values = [
@@ -150,7 +181,7 @@ app.post("/api/v1/applicants", (req, res) => {
     email,
     home_status,
     "pending",
-    getCreatureID
+    creature_id
   ];
 
   pool.query(queryString, values).catch(err => {
