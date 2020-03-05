@@ -74,18 +74,39 @@ app.get("/api/v1/creature_types/:type", (req, res) => {
 app.get("/api/v1/adoptable/:type", (req, res) => {
   const findType = req.params.type;
   pool
+  .connect()
+  .then(client => {
+    client.query(`SELECT adoptable_creatures.id AS id, adoptable_creatures.name AS name, adoptable_creatures.img_url AS img_url, adoptable_creatures.age AS age,
+    adoptable_creatures.vaccination_status AS vaccination_status, creature_types.type AS type_of_creature FROM adoptable_creatures JOIN creature_types ON creature_types.id = adoptable_creatures.type_id WHERE creature_types.type = '${findType}'`)
+    .then(result => {
+      const creatures = result.rows;
+      if (creatures.length > 0) {
+        client.release();
+        res.json(creatures);
+      } else {
+        res.status(404).send("404 Creature Type Not Found!");
+      }
+    })
+  })
+  .catch(error => {
+    console.log("ERROR =====> ", error);
+  });
+});
+
+app.get("/api/v1/creature_types/:type/:id", (req, res) => {
+  const findId = req.params.id;
+  const findType = req.params.type;
+  pool
     .connect()
     .then(client => {
-      client
-        .query(`SELECT adoptable_creatures.id AS id, adoptable_creatures.name AS name, adoptable_creatures.img_url AS img_url, adoptable_creatures.age AS age,
-        adoptable_creatures.vaccination_status AS vaccination_status, creature_types.type AS type_of_creature FROM adoptable_creatures JOIN creature_types ON creature_types.id = adoptable_creatures.type_id WHERE creature_types.type = '${findType}'`)
+      client.query("select * from adoptable_creatures join creature_types on creature_types.id = adoptable_creatures.type_id where upper(creature_types.type)=upper($1) and adoptable_creatures.id=$2", [findType, findId])
         .then(result => {
-          const creatures = result.rows;
-          if (creatures.length > 0) {
+          const creature = result.rows;
+          if (creature.length > 0) {
             client.release();
-            res.json(creatures);
+            res.json(creature[0]);
           } else {
-            res.status(404).send("404 Creature Type Not Found!");
+            res.status(404).send("404 Creature Not Found!");
           }
         });
     })
@@ -93,6 +114,8 @@ app.get("/api/v1/adoptable/:type", (req, res) => {
       console.log("ERROR =====> ", error);
     });
 });
+
+
 app.post("/api/v1/applicants", (req, res) => {
   const { name, phone_number, email, home_status } = req.body;
 
@@ -115,12 +138,17 @@ app.get("/", (req, res) => {
   res.redirect("/creatures");
 });
 
-app.get("*", (req, res) => {
+app.get("/creatures/:type/:id", (req, res) => {
+
   res.render("home");
 });
+
+app.get('*', (req, res) => {
+  res.render("home")
+})
 
 app.listen(3000, "0.0.0.0", () => {
   console.log("Server is listening...");
 });
 
-module.exports = app;
+module.exports = app

@@ -3,7 +3,7 @@ import { Route, Switch, BrowserRouter, Link } from "react-router-dom";
 import IndexTypes from "./IndexTypes";
 import IndexCreature from "./IndexCreature";
 import CreatureTypeShowpage from "../components/CreatureTypeShowpage";
-import Navigation from "../c"
+import Navigation from "../components/Navigation"
 
 const App = props => {
   return (
