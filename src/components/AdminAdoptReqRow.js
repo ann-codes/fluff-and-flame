@@ -1,6 +1,6 @@
 import React from "react";
 
-const AdminAppRow = props => {
+const AdminAdoptReqRow = props => {
   return (
     <tr>
       <td>{props.applicant.id}</td>
@@ -37,4 +37,4 @@ const AdminAppRow = props => {
   );
 };
 
-export default AdminAppRow;
+export default AdminAdoptReqRow;

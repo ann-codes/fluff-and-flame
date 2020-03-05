@@ -1,6 +1,6 @@
 import React from "react";
 
-const AdminAppRowHead = () => {
+const AdminAdoptReqHead = () => {
   return (
     <thead>
       <tr>
@@ -17,4 +17,4 @@ const AdminAppRowHead = () => {
   );
 };
 
-export default AdminAppRowHead;
+export default AdminAdoptReqHead;
