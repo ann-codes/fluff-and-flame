@@ -4,6 +4,7 @@ import IndexTypes from "./IndexTypes";
 import IndexCreature from "./IndexCreature";
 import CreatureTypeShowpage from "../components/CreatureTypeShowpage";
 import NewCreature from "../containers/NewCreature"
+import AdminMain from "./AdminMain";
 
 const App = props => {
   return (
@@ -15,6 +16,9 @@ const App = props => {
             <li>
               <Link to="/creatures">HOME</Link>
             </li>
+            <li>
+              <Link to="/admin">ADMIN LOGIN</Link>
+            </li>
           </ul>
         </nav>
         <Switch>
@@ -22,6 +26,7 @@ const App = props => {
           <Route exact path="/creatures/:type" component={IndexCreature} />
           <Route exact path="/creatures/:type/:id" component={CreatureTypeShowpage} />
           <Route exact path="/adoptions/new" component={NewCreature} />
+          <Route exact path="/admin" component={AdminMain} />
         </Switch>
       </div>
     </BrowserRouter>

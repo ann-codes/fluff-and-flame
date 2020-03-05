@@ -23,7 +23,7 @@ const AdoptionFormButton = props => {
         {formProcess()}
       </button>
       {toggleForm && (
-        <AdoptionForm submitState={setIsSubmitted} showForm={setToggleForm} />
+        <AdoptionForm submitState={setIsSubmitted} showForm={setToggleForm} creatureId={props.creatureId}/>
       )}
     </div>
   );

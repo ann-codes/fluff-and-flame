@@ -1,4 +1,5 @@
 import React from "react";
+import AdoptionFormButton from "./AdoptionFormButton";
 
 const CreatureInformation = props => {
     let vaccination
@@ -10,11 +11,12 @@ const CreatureInformation = props => {
 
     return (
         <div>
-            <p><img src={props.creature.creature_img}/></p>
-            <p>{props.creature.name}</p>
-            <p>Age:{props.creature.age}</p>
-            <p>Vaccination Status: {vaccination}</p>
-            <p>Creature Story: {props.creature.adoption_story}</p>
+            <img src={props.creature.creature_img}/>
+            <h3>{props.creature.name}</h3>
+            <p>Age: {props.creature.age}</p>
+            <p>Vaccination: {vaccination}</p>
+            <p>My Story: {props.creature.adoption_story}</p>
+            <AdoptionFormButton creatureId={props.creature.id} />
         </div>
     );
 };
