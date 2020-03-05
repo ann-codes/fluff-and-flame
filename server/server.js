@@ -110,8 +110,6 @@ const findId = req.params.id;
     })
 });
 
-
-
 app.post("/api/v1/applicants", (req, res) => {
   const { name, phone_number, email, home_status } = req.body;
 

@@ -32,9 +32,9 @@ const CreatureTypeShowpage = props => {
         })
     }, [])
 
-    // if (shouldRedirect){
-    //     return <Redirect to="/creatures" />
-    // }
+    if (shouldRedirect){
+        return <Redirect to="/creatures" />
+    }
 
     return (
     <div className="creature-show banana">

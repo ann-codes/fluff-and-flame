@@ -21,7 +21,7 @@ const IndexCreature = props => {
       creatureId={creature.id}
     />
   ));
-      return (
+  return (
     <div>
       <h3>Fluffs and Flames</h3>
       {mapCreatures}
