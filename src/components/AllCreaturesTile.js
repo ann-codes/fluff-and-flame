@@ -5,7 +5,7 @@ const AllCreaturesTile = props => {
   return (
     <div>
       <Link to={`${props.type}/${props.creatureId}`}>
-      <h2>{props.name}</h2>
+      <h2>{props.name}</h>
       <img className="category-img" src={props.imgUrl} alt={props.key} />
       </Link>
       <p>Age: {props.age}</p>
