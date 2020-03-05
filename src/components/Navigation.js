@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import IndexTypes from "../containers/IndexTypes"
 import IndexCreature from "../containers/IndexCreature"
+import
 
 const App = props => {
   return (
