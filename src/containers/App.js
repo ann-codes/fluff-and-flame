@@ -22,6 +22,9 @@ const App = props => {
               <Link to="/creatures">HOME</Link>
             </li>
             <li>
+              <Link to="/adoptions/new">CREATURE YOU WANT TO GIFT?</Link>
+            </li>
+            <li>
               <Link to="/adopted">HAPPY ADOPTIONS</Link>
             </li>
             <li>
