@@ -4,7 +4,7 @@ import AdminAdoptReqIndex from "./AdminAdoptReqIndex";
 const AdminMain = props => {
   return (
     <>
-      <h1>Administrator Portal</h1>
+      <h2>Administrator Portal</h2>
       <AdminAdoptReqIndex />
     </>
   );
