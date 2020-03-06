@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import fetchData from "../functions/fetchData";
-import AllCreaturesTile from '../components/AllCreaturesTile'
+import AllCreaturesTile from "../components/AllCreaturesTile";
 
 const IndexCreature = props => {
   const [creatures, setCreatures] = useState([]);
@@ -21,10 +21,12 @@ const IndexCreature = props => {
     />
   ));
   return (
-    <div>
-      <h3>Fluffs and Flames</h3>
-      {mapCreatures}
-    </div>
+    <>
+      <h3 className="text-center">Find the {byType} of your dreams!</h3>
+      <div className="row small-up-1 medium-up-2 large-up-3">
+        {mapCreatures}
+      </div>
+    </>
   );
 };
 
