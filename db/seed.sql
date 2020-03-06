@@ -201,7 +201,7 @@ VALUES
     8008,
     'no',
     'His mom and dad were clearly too lazy to think of another name',
-    'adopted',
+    'available',
     7
   ),
   (
@@ -246,7 +246,7 @@ VALUES
     38,
     'no',
     'B-B-B Bird, Bird, Bird... The Bird is the word.',
-    'available',
+    'adopted',
     7
   ),
   (
