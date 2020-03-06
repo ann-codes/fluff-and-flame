@@ -6,6 +6,7 @@ import { BrowserRouter as Router,
     useRouteMatch,
     useParams
 }   from "react-router-dom";
+import AdminMain from "../containers/AdminMain";
 import IndexTypes from "../containers/IndexTypes"
 import IndexCreature from "../containers/IndexCreature"
 import CreatureTypeShowpage from '../components/CreatureTypeShowpage'
@@ -20,7 +21,6 @@ const Navigation = props => {
               <Link to="/creatures">home</Link>
             </li>
             <li>
-              {/* add a placeholder for this */}
               <Link to="/creatures/">our magical creatures</Link>
             </li>
             <li>
@@ -31,7 +31,6 @@ const Navigation = props => {
             </li>
           </ul>
         </nav>
-        {/* add a footer */}
         <Switch>
           <div className="row medium-10 columns">
             <Route exact path="/creatures" component={IndexTypes} />

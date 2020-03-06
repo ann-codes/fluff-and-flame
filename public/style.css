@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* your styles, here */
 body {
     font-family:'Carrois Gothic', 'Raleway', sans-serif;
@@ -21,13 +20,7 @@ body {
   width: 200px;
 }
 
-.test {
-  color: black;
-}
-
-=======
 /* 404 Fade In */
->>>>>>> a9a29513d6221342bb5926e6c59a02fd4fdebcbe
 .fade-in {
   animation: fadeIn ease 4s;
 }
