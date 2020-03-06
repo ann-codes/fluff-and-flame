@@ -16,6 +16,23 @@ const App = props => {
         <h1 className="text-center">
           The Grand Order of Fluff and Flame Adoption Agency
         </h1>
+        <nav>
+          <ul>
+            <li>Navigation</li>
+            <li>
+              <Link to="/creatures">HOME</Link>
+            </li>
+            <li>
+              <Link to="/adoptions/new">CREATURE YOU WANT TO GIFT?</Link>
+            </li>
+            <li>
+              <Link to="/adopted">HAPPY ADOPTIONS</Link>
+            </li>
+            <li>
+              <Link to="/admin">ADMIN LOGIN</Link>
+            </li>
+          </ul>
+        </nav>
         <Navigation />
         <div className="row medium-10 columns">
           <Switch>
@@ -27,7 +44,7 @@ const App = props => {
           </Switch>
         </div>
         <Footer />
-x      </div>
+      </div>
     </Router>
   );
 };
