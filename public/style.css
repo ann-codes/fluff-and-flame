@@ -50,6 +50,12 @@ h2 {
   transition: 0.5s;
 }
 
+.img-tweaks {
+  border-radius: 25px;
+  max-width: 800px;
+  margin: 2rem;
+}
+
 footer {
   padding: 2rem;
   margin: 2.5rem 0 0 0;
