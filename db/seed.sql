@@ -39,9 +39,16 @@ VALUES
     'Merfolk',
     'Legendary water-dwelling human-like beings.',
     'https://i.pinimg.com/originals/31/98/6d/31986d15d7188faa4659a5ea81b5f4c3.jpg'
-);
-
-INSERT INTO adoptable_creatures(name, creature_img, age, vaccination_status, adoption_story, adoption_status, type_id)
+  );
+INSERT INTO adoptable_creatures(
+    name,
+    creature_img,
+    age,
+    vaccination_status,
+    adoption_story,
+    adoption_status,
+    type_id
+  )
 VALUES
   (
     'Nyan Nyan',
@@ -180,7 +187,7 @@ VALUES
     470,
     'yes',
     'He shall grant 3 wishes to anyone who finds all 7 of his Dragon Balls and recites the secret password.',
-    'can be adopted',
+    'available',
     2
   ),
   (
@@ -189,7 +196,7 @@ VALUES
     1658,
     'yes',
     'Thinks she is a cat. (eye roll).',
-    'can be adopted',
+    'available',
     1
   ),
   (
@@ -198,7 +205,7 @@ VALUES
     8008,
     'no',
     'His mom and dad were clearly too lazy to think of another name',
-    'adopted',
+    'available',
     7
   ),
   (
@@ -207,7 +214,7 @@ VALUES
     100,
     'no',
     'The best mermaid superhe... Never mind. Just take him off our hands.',
-    'can be adopted',
+    'available',
     8
   ),
   (
@@ -216,7 +223,7 @@ VALUES
     61,
     'no',
     'Retired but doesnt know when happy hour is over.',
-    'can be adopted',
+    'available',
     8
   ),
   (
@@ -225,7 +232,7 @@ VALUES
     25,
     'yes',
     'Shes just waiting for a reason to kick your butt.',
-    'can be adopted',
+    'available',
     8
   ),
   (
@@ -234,7 +241,7 @@ VALUES
     3000,
     'yes',
     'We can never figure out if hes dabbing or has a headache',
-    'can be adopted',
+    'available',
     3
   ),
   (
@@ -243,7 +250,7 @@ VALUES
     38,
     'no',
     'B-B-B Bird, Bird, Bird... The Bird is the word.',
-    'can be adopted',
+    'available',
     7
   ),
   (
@@ -252,7 +259,7 @@ VALUES
     30,
     'yes',
     'Dont get caught in the lane!',
-    'can be adopted',
+    'available',
     7
   ),
   (
@@ -261,7 +268,7 @@ VALUES
     16,
     'no',
     'Just. Ignore. Him.',
-    'can be adopted',
+    'available',
     3
   ),
   (
@@ -270,7 +277,7 @@ VALUES
     32,
     'no',
     'The HOTTEST girl out there.... get it?',
-    'can be adopted',
+    'available',
     6
   ),
   (
@@ -279,7 +286,7 @@ VALUES
     32,
     'yes',
     'The original Phoenix Pokemon!',
-    'can be adopted',
+    'available',
     6
   ),(
     'Toast',
@@ -402,8 +409,14 @@ VALUES
     'available',
     6
   );
-
-INSERT INTO adoption_applications(name, phone_number, email, home_status, application_status, creature_id)
+INSERT INTO adoption_applications(
+    name,
+    phone_number,
+    email,
+    home_status,
+    application_status,
+    creature_id
+  )
 VALUES
   (
     'Bob',
