@@ -106,10 +106,11 @@ app.get("/api/v1/creature_types/:type/:id", (req, res) => {
           adoptable_creatures.creature_img  AS img_url,
           adoptable_creatures.age AS age,
           adoptable_creatures.vaccination_status AS vaccination_status,
+          adoptable_creatures.adoption_status AS adoption_status,
           creature_types.type AS type_of_creature
           FROM adoptable_creatures JOIN creature_types
           ON creature_types.id = adoptable_creatures.type_id
-          WHERE creature_types.type = '${findType}'`
+          WHERE creature_types.type LIKE '${findType}'`
         )
         .then(result => {
           const creature = result.rows;
@@ -168,7 +169,7 @@ app.get("/api/v1/applicants", (req, res) => {
     .then(client => {
       client
         .query(
-          `SELECT adoption_applications.id AS id, 
+          `SELECT adoption_applications.id AS id,
           adoption_applications.name AS name,
           adoption_applications.phone_number AS phone_number,
           adoption_applications.email AS email,
@@ -178,7 +179,7 @@ app.get("/api/v1/applicants", (req, res) => {
           adoptable_creatures.name AS creature_name,
           adoptable_creatures.adoption_status AS adoption_status,
           creature_types.type AS creature_type
-          FROM adoption_applications JOIN adoptable_creatures 
+          FROM adoption_applications JOIN adoptable_creatures
           ON adoption_applications.creature_id = adoptable_creatures.id
           JOIN creature_types ON creature_types.id = adoptable_creatures.type_id
           ORDER BY adoptable_creatures.id, adoption_applications.id`

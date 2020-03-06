@@ -6,6 +6,8 @@ import IndexCreature from "./IndexCreature";
 import CreatureTypeShowpage from "../components/CreatureTypeShowpage";
 import Navigation from "../components/Navigation"
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
+import IndexAdopted from "./IndexAdopted";
+import Footer from "../components/Footer";
 
 const App = props => {
   return (
@@ -27,7 +29,8 @@ const App = props => {
             />
           </Switch>
         </div>
-      </div>
+        <Footer />
+x      </div>
     </Router>
   );
 };

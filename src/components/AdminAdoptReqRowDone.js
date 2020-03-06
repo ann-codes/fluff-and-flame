@@ -9,7 +9,7 @@ const AdminAdoptReqRowDone = props => {
       <td>{props.applicant.email}</td>
       <td>{props.applicant.home_status}</td>
       <td>
-        <a href={`creatures/${props.applicant.creature_type}`} target="_blank">
+        <a href={`creatures/${props.applicant.creature_type}/${props.applicant.creature_id}`} target="_blank">
           {props.applicant.creature_name}
         </a>
       </td>
