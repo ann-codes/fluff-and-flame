@@ -6,7 +6,7 @@ const AllCreaturesTile = props => {
     <div>
       <Link to={`${props.type}/${props.creatureId}`}>
       <h2>{props.name}</h2>
-      <img className="category-img" src={props.imgUrl} alt={props.key} />
+      <img className="category-img" src={props.imgUrl} alt={props.type} />
       </Link>
       <p>Age: {props.age}</p>
       <p>{`Vaccinated: ${props.vacStatus}`}</p>
