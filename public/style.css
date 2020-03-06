@@ -1,19 +1,25 @@
 /* your styles, here */
 body {
-    font-family:'Carrois Gothic', 'Raleway', sans-serif;
-    background-color: white;
+  font-family: "Carrois Gothic", "Raleway", sans-serif;
+  background-color: white;
 }
 
 .nav {
-  height: 80px;
-  background-color: white ;
-  background-image: url('https://www.stickpng.com/assets/images/580b585b2edbce24c47b263f.png')
+  padding: 20px;
+  background-color: white;
+  background-image: url("https://www.stickpng.com/assets/images/580b585b2edbce24c47b263f.png");
+  font-size: 1.2rem;
+}
+
+.menu li {
+  padding: 0 20px;
+  margin: 0 auto;
 }
 
 .container {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 10px;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 10px;
 }
 
 .category-img {
@@ -43,7 +49,7 @@ h3 {
 h2 {
   background-color: #c5d4df;
   padding: 0.5rem;
-  margin: 1.5rem 0;
+  margin: 2rem 0 1.5rem 0;
 }
 
 .mast {
@@ -70,6 +76,12 @@ h2 {
   -ms-transform: scale(1.02);
   transform: scale(1.02);
   transition: 0.5s;
+}
+
+.img-tweaks {
+  border-radius: 25px;
+  max-width: 800px;
+  margin: 2rem;
 }
 
 footer {

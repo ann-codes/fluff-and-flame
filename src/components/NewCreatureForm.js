@@ -67,6 +67,7 @@ const NewCreatureForm = props => {
         <input
             name="petName"
             id="petName"
+            type="text"
             value={formState.petName}
             onChange={handleChange}
         />
@@ -76,6 +77,7 @@ const NewCreatureForm = props => {
         <input
             name="petAge"
             id="petAge"
+            type="text"
             value={formState.petAge}
             onChange={handleChange}
         />
@@ -98,6 +100,7 @@ const NewCreatureForm = props => {
         <input
             name="petImg"
             id="petImg"
+            type="text"
             value={formState.petImg}
             onChange={handleChange}
         />
