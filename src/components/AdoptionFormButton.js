@@ -9,7 +9,7 @@ const AdoptionFormButton = props => {
 
   const formProcess = () => {
     if (isSubmitted) {
-      return "Thank you for submitting! Your request is in process.";
+      return "Thank you for submitting!";
     } else if (toggleForm) {
       return "Close Form";
     } else {
@@ -19,11 +19,25 @@ const AdoptionFormButton = props => {
 
   return (
     <div>
-      <button className="button" onClick={clickForm} disabled={isSubmitted}>
+      {isSubmitted && (
+        <h3 className="callout">
+          Your request has been successfully submitted and is now in process. We
+          will contact you in 3-5 days.
+        </h3>
+      )}
+      <button
+        className="button large"
+        onClick={clickForm}
+        disabled={isSubmitted}
+      >
         {formProcess()}
       </button>
       {toggleForm && (
-        <AdoptionForm submitState={setIsSubmitted} showForm={setToggleForm} creatureId={props.creatureId}/>
+        <AdoptionForm
+          submitState={setIsSubmitted}
+          showForm={setToggleForm}
+          creatureId={props.creatureId}
+        />
       )}
     </div>
   );

@@ -26,13 +26,19 @@ const Navigation = props => {
             <li>
               <Link to="/creatures/:type/:id">surrender a creature</Link>
             </li>
+            <li>
+              <Link to="/admin">ADMIN LOGIN</Link>
+            </li>
           </ul>
         </nav>
         {/* add a footer */}
         <Switch>
-          <Route exact path="/creatures" component={IndexTypes} />
-          <Route exact path="/creatures/:type" component={IndexCreature} />
-          <Route exact path="/creatures/:type/:id" component={CreatureTypeShowpage} />
+          <div className="row medium-10 columns">
+            <Route exact path="/creatures" component={IndexTypes} />
+            <Route exact path="/creatures/:type" component={IndexCreature} />
+            <Route exact path="/creatures/:type/:id" component={CreatureTypeShowpage} />
+            <Route exact path="/admin" component={AdminMain} />
+          </div>
         </Switch>
       </div>
     </Router>

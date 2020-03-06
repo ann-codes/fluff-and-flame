@@ -20,9 +20,8 @@ const IndexTypes = props => {
 
   return (
     <Fragment>
-      <h1>The Order of Fluff and Flame Adoption Agency</h1>
-      <h2>Select a Creature to adopt!</h2>
-      {mapTypes}
+      <h2 className="text-center">Find the type of magical creature to adopt!</h2>
+      <div className="row small-up-1 medium-up-2 large-up-3 text-center">{mapTypes}</div>
     </Fragment>
   );
 };

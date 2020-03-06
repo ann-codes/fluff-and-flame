@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* your styles, here */
 body {
     font-family:'Carrois Gothic', 'Raleway', sans-serif;
@@ -24,6 +25,9 @@ body {
   color: black;
 }
 
+=======
+/* 404 Fade In */
+>>>>>>> a9a29513d6221342bb5926e6c59a02fd4fdebcbe
 .fade-in {
   animation: fadeIn ease 4s;
 }
@@ -34,4 +38,29 @@ body {
   100% {
     opacity: 1;
   }
+}
+
+.bold-me {
+  font-weight: bolder;
+}
+
+.img-radius {
+  margin: 1rem 0;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.img-radius:hover {
+  border-radius: 10px;
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  transform: scale(1.02);
+  transition: 0.5s;
+}
+
+.ann-test {
+  background-color: azure;
+  border: 1px solid black;
 }

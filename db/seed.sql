@@ -7,13 +7,28 @@ VALUES
   ),
   (
     'Dragon',
-    'A reptile in varired sizes and magical abilities.',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Dragon.svg/1200px-Dragon.svg.png'
+    'A powerful reptile in varied sizes with magical abilities.',
+    'https://i.imgur.com/0Z6wZmr.jpg'
   ),
   (
     'Unicorn',
     'A equine animal, typically with white fur, easily identifed by a large horn on their heads.',
-    'https://upload.wikimedia.org/wikipedia/en/7/78/The_Hunt_of_the_Unicorn_Tapestry_7.jpg'
+    'https://i.imgur.com/aQ7YyVW.jpg'
+  ),
+  (
+    'Chimera',
+    'A fire-breathing monster with a lion head, goat body, and a serpent tail.',
+    'https://i.imgur.com/7y2M1yY.jpg'
+  ),
+  (
+    'Kelpi',
+    'A shape-shifting water spirit inhabiting the lochs and pools of Scotland.',
+    'https://i.quotev.com/img/q/u/17/10/12/jzdw4y5vue.jpg'
+  ),
+  (
+    'Phoenix',
+    'A phoenix is a long-lived bird that cyclically regenerates or is otherwise born again.',
+    'https://i.imgur.com/StnBqkP.jpg'
   );
 
 INSERT INTO adoptable_creatures(
@@ -45,39 +60,229 @@ VALUES
     1
   ),
   (
+    'Galakrond',
+    'https://gamepedia.cursecdn.com/wowpedia/thumb/e/e5/Galakrond%2C_the_Wretched.jpg/1032px-Galakrond%2C_the_Wretched.jpg',
+    7950,
+    'yes',
+    'A massive proto-dragon who is known as the progenitor of dragonkind.',
+    'available',
+    2
+  ),
+  (
     'Spyro',
     'https://www.syfy.com/sites/syfy/files/styles/1200x680/public/2018/11/spyro_reignited.png',
-    7950,
+    950,
     'yes',
     'Fought many a battle now needs a happy home',
     'available',
     2
+  ),(
+    'Deathwing',
+    'https://gamepedia.cursecdn.com/wowpedia/thumb/2/27/Glowei_Deathwing.jpg/808px-Glowei_Deathwing.jpg',
+    6950,
+    'yes',
+    'One of the five Dragon Aspects and leader of the black dragonflight.',
+    'available',
+    2
+  ),
+  (
+    'Majestick',
+    'https://i.imgur.com/s39N3.jpg',
+    276,
+    'yes',
+    'Is really pretty, but so forelorn. ',
+    'available',
+    3
   ),
   (
     'Peter Pegasus',
     'https://vignette.wikia.nocookie.net/disney/images/e/e7/Peter_Pegasus.jpg/revision/latest?cb=20180601060225',
     2,
     'no',
-    'Fell from the clouds and into your arms',
-    'can be adopted',
-    2
+    'Fell from the clouds and into your arms. Is not really a unicorn, but who cares?',
+    'available',
+    3
   ),
   (
-    'Blue Eyes White Dragon',
+    'Jimmy the Unicorn',
+    'https://cdn.shopify.com/s/files/1/1365/2497/products/Rainbow-unicorn-mask_900x.png',
+    28,
+    'no',
+    'I am really a unicorn, seriously!',
+    'available',
+    3
+  ),
+  (
+    'Lisa Frank',
+    'https://cdn.shopify.com/s/files/1/2362/8001/products/rainbow-unicorn-paint-with-diamonds-bfcm-fall-sale-fantasy-november-2018-round_648_600x.jpg',
+    6828,
+    'yes',
+    'A the queen unicorn of your childhood dreams.',
+    'available',
+    3
+  ),
+  (
+    'Squeee',
+    'https://i.imgur.com/yWOb3il.jpg',
+    8,
+    'no',
+    'So CUTE.',
+    'available',
+    3
+  ),
+  (
+    'Blue Eyes',
     'https://vignette.wikia.nocookie.net/yugioh/images/7/7a/DMx214_BEWD.png/revision/latest?cb=20140819225434',
     3000,
     'yes',
-    'Released by its former owner due to aggressive nature but is actually quite fluffy',
-    'adoption pending',
-    3
+    'Released by its former owner due to aggressive nature but is actually quite cuddly.',
+    'available',
+    2
+  ),
+  (
+    'Alexstrasza',
+    'https://gamepedia.cursecdn.com/wowpedia/5/55/Alexstrasza_in_Twilight_Highlands.jpg',
+    7809,
+    'yes',
+    'Alexstrasza the Life-Binder, Aspect of the red dragonflight, is the guardian of all life in the world of Azeroth.',
+    'available',
+    2
   ),(
     'Yoshi',
     'https://www.mariowiki.com/images/thumb/4/4d/Yoshi_-_Mario_Party_10.png/784px-Yoshi_-_Mario_Party_10.png',
     38,
     'yes',
     'Is really a dinosaur, but whatever',
-    'adopted',
+    'available',
     2
+  ),(
+    'Diablos',
+    'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-diablos_render_001.png',
+    387,
+    'yes',
+    'The apex monster of the Wildspire Waste. A menacing, territorial beast that lurks underground. Make some armor from his horns.',
+    'available',
+    2
+  ),(
+    'Toast',
+    'https://media.giphy.com/media/1135FPdT0iGkDK/giphy.gif',
+    8,
+    'yes',
+    'TOAST CAT',
+    'available',
+    1
+  ),(
+    'Liddy Kiddy',
+    'https://media1.tenor.com/images/aae006222ffe56fa053e66521319010c/tenor.gif',
+    8,
+    'yes',
+    'Happy Saint Paddys Day',
+    'available',
+    1
+  ),(
+    'Junior Junior Junior',
+    'https://i.imgur.com/I4XEvGQ.jpg',
+    1,
+    'yes',
+    'An abandoned baby chimera, ready for you to love, love, and love.',
+    'available',
+    4
+  ),(
+    'Baby Baby Baby',
+    'https://i.imgur.com/Frm1U2e.png',
+    1,
+    'yes',
+    'Another abandoned baby chimera, ready for you to love, love, and love.',
+    'available',
+    4
+  ),(
+    'Jim, John, and Billybob',
+    'https://i.pinimg.com/originals/34/44/3d/34443d0a305fb08fd115d2a3a0ebe7d7.jpg',
+    131,
+    'yes',
+    'They are really actually very cuddly.',
+    'available',
+    4
+  ),(
+    'Karen',
+    'https://i.imgur.com/4WR1iFj.jpg',
+    98,
+    'no',
+    'No Karen, put that down.',
+    'available',
+    5
+  ),(
+    'Josh',
+    'https://i.pinimg.com/originals/34/aa/b3/34aab386be816ce2332f38262ce2ea97.jpg',
+    72,
+    'no',
+    'Josh can be emo at times.',
+    'available',
+    5
+  ),(
+    'Allen',
+    'https://i.pinimg.com/originals/85/e8/75/85e875643f9e7dd70c15917743659594.jpg',
+    124,
+    'yes',
+    'Jesus f-ing christ, Allen is horrifying.',
+    'available',
+    5
+  ),(
+    'Cynthia',
+    'https://i.imgur.com/45JFl1p.jpg',
+    152,
+    'yes',
+    'Cynthia leaves puddles everywhere. Kelpies, amiright?',
+    'available',
+    5
+  ),(
+    'Adam',
+    'https://i.imgur.com/8XwZTr2g.jpg',
+    82,
+    'yes',
+    'Adam is kind of a badass.',
+    'available',
+    5
+  ),(
+    'Lord Killigan',
+    'https://i.imgur.com/5jY0SGU.jpg',
+    8987,
+    'yes',
+    'I am the king of the sun.',
+    'available',
+    6
+  ),(
+    'Aoife the Elegant',
+    'https://i.imgur.com/E0p7yjU.jpg',
+    6568,
+    'yes',
+    'I am the prettiest girl at the ball.',
+    'available',
+    6
+  ),(
+    'Cootie and Patootie',
+    'https://i.pinimg.com/originals/df/41/2d/df412d59c953be9cd3b13f8a069104a4.jpg',
+    9568,
+    'yes',
+    'Twin baby phoenixes. Or are they?',
+    'available',
+    6
+  ),(
+    'Lady Ephemeral',
+    'https://i.pinimg.com/originals/ae/e4/ee/aee4eeb7ff35da99e7237599545d3e9a.jpg',
+    588,
+    'yes',
+    'A little too dramatic.',
+    'available',
+    6
+  ),(
+    'Joey Tryagain',
+    'https://i.pinimg.com/originals/6a/ce/fb/6acefbc85beebad8b259538394ba9cf2.jpg',
+    3580,
+    'yes',
+    'Keep trying until you succeed!',
+    'available',
+    6
   );
   
 INSERT INTO adoption_applications(
