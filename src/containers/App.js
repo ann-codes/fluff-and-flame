@@ -1,16 +1,17 @@
 import React from "react";
-import { Route, Switch, BrowserRouter, Link } from "react-router-dom";
-import IndexTypes from "./IndexTypes";
-import IndexCreature from "./IndexCreature";
-import CreatureTypeShowpage from "../components/CreatureTypeShowpage";
-import NewCreature from "../containers/NewCreature"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import AdminMain from "./AdminMain";
 import IndexAdopted from "./IndexAdopted";
+import IndexCreature from "./IndexCreature";
+import IndexTypes from "./IndexTypes";
+import CreatureTypeShowpage from "../components/CreatureTypeShowpage";
+import Navigation from "../components/Navigation"
+import NewCreature from "../containers/NewCreature"
 import Footer from "../components/Footer";
 
 const App = props => {
   return (
-    <BrowserRouter>
+    <Router>
       <div className="">
         <h1 className="text-center mast">
           The Grand Order of Fluff and Flame Adoption Agency
@@ -20,6 +21,9 @@ const App = props => {
             <li>Navigation</li>
             <li>
               <Link to="/creatures">HOME</Link>
+            </li>
+            <li>
+              <Link to="/adoptions/new">CREATURE YOU WANT TO GIFT?</Link>
             </li>
             <li>
               <Link to="/adopted">HAPPY ADOPTIONS</Link>
@@ -32,6 +36,7 @@ const App = props => {
             </li>
           </ul>
         </nav>
+        <Navigation />
         <div className="row medium-10 columns">
           <Switch>
             <Route exact path="/admin" component={AdminMain} />
@@ -45,8 +50,9 @@ const App = props => {
         </div>
         <Footer />
       </div>
-    </BrowserRouter>
+    </Router>
   );
 };
 
 export default App;
+

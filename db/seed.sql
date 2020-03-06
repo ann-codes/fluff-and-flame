@@ -69,7 +69,8 @@ VALUES
     'A Nyan cat in the shape of a taco. Yummmmmmm.',
     'available',
     1
-  ),(
+  ),
+  (
     'Galakrond',
     'https://gamepedia.cursecdn.com/wowpedia/thumb/e/e5/Galakrond%2C_the_Wretched.jpg/1032px-Galakrond%2C_the_Wretched.jpg',
     7950,
@@ -86,7 +87,8 @@ VALUES
     'Fought many a battle now needs a happy home',
     'available',
     2
-  ),(
+  ),
+  (
     'Deathwing',
     'https://gamepedia.cursecdn.com/wowpedia/thumb/2/27/Glowei_Deathwing.jpg/808px-Glowei_Deathwing.jpg',
     6950,
@@ -165,7 +167,8 @@ VALUES
     'Is really a dinosaur, but whatever',
     'available',
     2
-  ),(
+  ),
+  (
     'Diablos',
     'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-diablos_render_001.png',
     387,
@@ -180,7 +183,7 @@ VALUES
     470,
     'yes',
     'He shall grant 3 wishes to anyone who finds all 7 of his Dragon Balls and recites the secret password.',
-    'can be adopted',
+    'available',
     2
   ),
   (
@@ -189,7 +192,7 @@ VALUES
     1658,
     'yes',
     'Thinks she is a cat. (eye roll).',
-    'can be adopted',
+    'available',
     1
   ),
   (
@@ -198,7 +201,7 @@ VALUES
     8008,
     'no',
     'His mom and dad were clearly too lazy to think of another name',
-    'adopted',
+    'available',
     7
   ),
   (
@@ -207,7 +210,7 @@ VALUES
     100,
     'no',
     'The best mermaid superhe... Never mind. Just take him off our hands.',
-    'can be adopted',
+    'available',
     8
   ),
   (
@@ -216,7 +219,7 @@ VALUES
     61,
     'no',
     'Retired but doesnt know when happy hour is over.',
-    'can be adopted',
+    'available',
     8
   ),
   (
@@ -225,7 +228,7 @@ VALUES
     25,
     'yes',
     'Shes just waiting for a reason to kick your butt.',
-    'can be adopted',
+    'available',
     8
   ),
   (
@@ -234,7 +237,7 @@ VALUES
     3000,
     'yes',
     'We can never figure out if hes dabbing or has a headache',
-    'can be adopted',
+    'available',
     3
   ),
   (
@@ -243,7 +246,7 @@ VALUES
     38,
     'no',
     'B-B-B Bird, Bird, Bird... The Bird is the word.',
-    'can be adopted',
+    'adopted',
     7
   ),
   (
@@ -252,7 +255,7 @@ VALUES
     30,
     'yes',
     'Dont get caught in the lane!',
-    'can be adopted',
+    'available',
     7
   ),
   (
@@ -261,7 +264,7 @@ VALUES
     16,
     'no',
     'Just. Ignore. Him.',
-    'can be adopted',
+    'available',
     3
   ),
   (
@@ -270,7 +273,7 @@ VALUES
     32,
     'no',
     'The HOTTEST girl out there.... get it?',
-    'can be adopted',
+    'available',
     6
   ),
   (
@@ -279,9 +282,10 @@ VALUES
     32,
     'yes',
     'The original Phoenix Pokemon!',
-    'can be adopted',
+    'available',
     6
-  ),(
+  ),
+  (
     'Toast',
     'https://media.giphy.com/media/1135FPdT0iGkDK/giphy.gif',
     8,
@@ -289,7 +293,8 @@ VALUES
     'TOAST CAT',
     'available',
     1
-  ),(
+  ),
+  (
     'Liddy Kiddy',
     'https://media1.tenor.com/images/aae006222ffe56fa053e66521319010c/tenor.gif',
     8,
@@ -297,7 +302,8 @@ VALUES
     'Happy Saint Paddys Day',
     'available',
     1
-  ),(
+  ),
+  (
     'Junior Junior Junior',
     'https://i.imgur.com/I4XEvGQ.jpg',
     1,
@@ -305,7 +311,8 @@ VALUES
     'An abandoned baby chimera, ready for you to love, love, and love.',
     'available',
     4
-  ),(
+  ),
+  (
     'Baby Baby Baby',
     'https://i.imgur.com/Frm1U2e.png',
     1,
@@ -313,7 +320,8 @@ VALUES
     'Another abandoned baby chimera, ready for you to love, love, and love.',
     'available',
     4
-  ),(
+  ),
+  (
     'Jim, John, and Billybob',
     'https://i.pinimg.com/originals/34/44/3d/34443d0a305fb08fd115d2a3a0ebe7d7.jpg',
     131,
@@ -321,7 +329,8 @@ VALUES
     'They are really actually very cuddly.',
     'available',
     4
-  ),(
+  ),
+  (
     'Karen',
     'https://i.imgur.com/4WR1iFj.jpg',
     98,
@@ -329,7 +338,8 @@ VALUES
     'No Karen, put that down.',
     'available',
     5
-  ),(
+  ),
+  (
     'Josh',
     'https://i.pinimg.com/originals/34/aa/b3/34aab386be816ce2332f38262ce2ea97.jpg',
     72,
@@ -337,7 +347,8 @@ VALUES
     'Josh can be emo at times.',
     'available',
     5
-  ),(
+  ),
+  (
     'Allen',
     'https://i.pinimg.com/originals/85/e8/75/85e875643f9e7dd70c15917743659594.jpg',
     124,
@@ -345,7 +356,8 @@ VALUES
     'Jesus f-ing christ, Allen is horrifying.',
     'available',
     5
-  ),(
+  ),
+  (
     'Cynthia',
     'https://i.imgur.com/45JFl1p.jpg',
     152,
@@ -361,7 +373,8 @@ VALUES
     'Adam is kind of a badass.',
     'available',
     5
-  ),(
+  ),
+  (
     'Lord Killigan',
     'https://i.imgur.com/5jY0SGU.jpg',
     8987,
@@ -369,7 +382,8 @@ VALUES
     'I am the king of the sun.',
     'available',
     6
-  ),(
+  ),
+  (
     'Aoife the Elegant',
     'https://i.imgur.com/E0p7yjU.jpg',
     6568,
@@ -377,7 +391,8 @@ VALUES
     'I am the prettiest girl at the ball.',
     'available',
     6
-  ),(
+  ),
+  (
     'Cootie and Patootie',
     'https://i.pinimg.com/originals/df/41/2d/df412d59c953be9cd3b13f8a069104a4.jpg',
     9568,
@@ -385,7 +400,8 @@ VALUES
     'Twin baby phoenixes. Or are they?',
     'available',
     6
-  ),(
+  ),
+  (
     'Lady Ephemeral',
     'https://i.pinimg.com/originals/ae/e4/ee/aee4eeb7ff35da99e7237599545d3e9a.jpg',
     588,
@@ -393,7 +409,8 @@ VALUES
     'A little too dramatic.',
     'available',
     6
-  ),(
+  ),
+  (
     'Joey Tryagain',
     'https://i.pinimg.com/originals/6a/ce/fb/6acefbc85beebad8b259538394ba9cf2.jpg',
     3580,
