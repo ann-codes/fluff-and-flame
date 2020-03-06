@@ -9,18 +9,21 @@ import AdminMain from "./AdminMain";
 const App = props => {
   return (
     <BrowserRouter>
-      <div className="top-bar topbar-center-logo" id="topbar-center-logo">
-        <div className="top-bar-left">
-          <ul className="menu vertical medium-horizontal">
-            <li><a href="/creatures">Home</a></li>
-            <li><a href="/creatures/Nyan Cat">Nyan Cats</a></li>
-            <li><a href="/creatures/Dragon">Dragons</a></li>
-            <li><a href="/creatures/Unicorn">Unicorns</a></li>
+      <div className="">
+        <h1 className="text-center">
+          The Grand Order of Fluff and Flame Adoption Agency
+        </h1>
+        <nav>
+          <ul>
+            <li>Navigation</li>
+            <li>
+              <Link to="/creatures">HOME</Link>
+            </li>
+            <li>
+              <Link to="/admin">ADMIN LOGIN</Link>
+            </li>
           </ul>
         </div>
-        {/* <div className="top-bar-center">
-          <a href="#"><img src="https://placehold.it/100x39" alt="" /></a>
-        </div> */}
         <div className="top-bar-right">
           <ul className="menu vertical medium-horizontal">
             <li><a href="/creatures/Phoenix">Phoenix</a></li>
@@ -32,11 +35,13 @@ const App = props => {
       </div>
         {/* </nav> */}
         <Switch>
-          <Route exact path="/creatures" component={IndexTypes} />
-          <Route exact path="/creatures/:type" component={IndexCreature} />
-          <Route exact path="/creatures/:type/:id" component={CreatureTypeShowpage} />
-          <Route exact path="/adoptions/new" component={NewCreature} />
-          <Route exact path="/admin" component={AdminMain} />
+          <div className="row medium-10 columns">
+            <Route exact path="/creatures" component={IndexTypes} />
+            <Route exact path="/creatures/:type" component={IndexCreature} />
+            <Route exact path="/creatures/:type/:id" component={CreatureTypeShowpage} />
+            <Route exact path="/adoptions/new" component={NewCreature} />
+            <Route exact path="/admin" component={AdminMain} />
+          </div>
         </Switch>
       {/* </div> */}
     </BrowserRouter>

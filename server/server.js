@@ -230,13 +230,23 @@ app.post("/api/v1/new_creature", (req, res) => {
     petImg,
     vaccinationStatus} = req.body;
 
-    if(req.body.petType==="Nyan Cat"){
-      petType = 1
-    } if (req.body.petType=== "Dragon") {
-      petType = 2
-    } else{
-      petType = 3
-    }
+  if(req.body.petType==="Nyan Cat"){
+    petType = 1
+  } if (req.body.petType=== "Dragon") {
+    petType = 2
+  } if (req.body.petType === "Unicorn") {
+    petType = 3
+  } if (req.body.petType === "Chimera") {
+    petType = 4
+  } if (req.body.petType === "Kelpi") {
+    petType = 5
+  } if (req.body.petType === "Phoenix") {
+    petType = 6
+  } if (req.body.petType === "Griffin") {
+    petType = 7
+  } if (req.body.petType === "Merfolk") {
+    petType = 8
+  }
 
   pool
     .query(
