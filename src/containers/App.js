@@ -11,7 +11,7 @@ const App = props => {
   return (
     <BrowserRouter>
       <div className="">
-        <h1 className="text-center">
+        <h1 className="text-center mast">
           The Grand Order of Fluff and Flame Adoption Agency
         </h1>
         <nav>
