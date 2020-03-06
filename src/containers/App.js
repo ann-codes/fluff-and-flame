@@ -25,6 +25,9 @@ const App = props => {
               <Link to="/adopted">HAPPY ADOPTIONS</Link>
             </li>
             <li>
+              <Link to="/surrender">SURRENDER YOUR CREATURE</Link>
+            </li>
+            <li>
               <Link to="/admin">ADMIN LOGIN</Link>
             </li>
           </ul>
@@ -33,6 +36,7 @@ const App = props => {
           <Switch>
             <Route exact path="/admin" component={AdminMain} />
             <Route exact path="/adopted" component={IndexAdopted} />
+            <Route exact path="/surrender" component={NewCreature} />
             <Route exact path="/creatures" component={IndexTypes} />
             <Route exact path="/creatures/:type" component={IndexCreature} />
             <Route exact path="/creatures/:type/:id" component={CreatureTypeShowpage} />
