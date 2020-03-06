@@ -19,11 +19,11 @@ const IndexTypes = props => {
   ));
 
   return (
-    <Fragment>
+    <div className="creature-type-list">
       <h1>The Order of Fluff and Flame Adoption Agency</h1>
       <h2>Select a Creature to adopt!</h2>
       {mapTypes}
-    </Fragment>
+    </div>
   );
 };
 
