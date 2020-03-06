@@ -4,6 +4,8 @@ import IndexTypes from "./IndexTypes";
 import IndexCreature from "./IndexCreature";
 import CreatureTypeShowpage from "../components/CreatureTypeShowpage";
 import AdminMain from "./AdminMain";
+import IndexAdopted from "./IndexAdopted";
+import Footer from "../components/Footer";
 
 const App = props => {
   return (
@@ -19,12 +21,17 @@ const App = props => {
               <Link to="/creatures">HOME</Link>
             </li>
             <li>
+              <Link to="/adopted">HAPPY ADOPTIONS</Link>
+            </li>
+            <li>
               <Link to="/admin">ADMIN LOGIN</Link>
             </li>
           </ul>
         </nav>
-        <Switch>
-          <div className="row medium-10 columns">
+        <div className="row medium-10 columns">
+          <Switch>
+            <Route exact path="/admin" component={AdminMain} />
+            <Route exact path="/adopted" component={IndexAdopted} />
             <Route exact path="/creatures" component={IndexTypes} />
             <Route exact path="/creatures/:type" component={IndexCreature} />
             <Route
@@ -32,9 +39,9 @@ const App = props => {
               path="/creatures/:type/:id"
               component={CreatureTypeShowpage}
             />
-            <Route exact path="/admin" component={AdminMain} />
-          </div>
-        </Switch>
+          </Switch>
+        </div>
+        <Footer />
       </div>
     </BrowserRouter>
   );
