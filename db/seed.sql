@@ -8,7 +8,7 @@ VALUES
   (
     'Dragon',
     'A powerful reptile in varied sizes with magical abilities.',
-    'https://i.imgur.com/k5Y9n.jpg'
+    'https://i.imgur.com/0Z6wZmr.jpg'
   ),
   (
     'Unicorn',
@@ -60,11 +60,28 @@ VALUES
     1
   ),
   (
-    'Spyro',
-    'https://www.syfy.com/sites/syfy/files/styles/1200x680/public/2018/11/spyro_reignited.png',
+    'Galakrond',
+    'https://gamepedia.cursecdn.com/wowpedia/thumb/e/e5/Galakrond%2C_the_Wretched.jpg/1032px-Galakrond%2C_the_Wretched.jpg',
     7950,
     'yes',
+    'A massive proto-dragon who is known as the progenitor of dragonkind.',
+    'available',
+    2
+  ),
+  (
+    'Spyro',
+    'https://www.syfy.com/sites/syfy/files/styles/1200x680/public/2018/11/spyro_reignited.png',
+    950,
+    'yes',
     'Fought many a battle now needs a happy home',
+    'available',
+    2
+  ),(
+    'Deathwing',
+    'https://gamepedia.cursecdn.com/wowpedia/thumb/2/27/Glowei_Deathwing.jpg/808px-Glowei_Deathwing.jpg',
+    6950,
+    'yes',
+    'One of the five Dragon Aspects and leader of the black dragonflight.',
     'available',
     2
   ),
@@ -114,11 +131,20 @@ VALUES
     3
   ),
   (
-    'Blue Eyes White Dragon',
+    'Blue Eyes',
     'https://vignette.wikia.nocookie.net/yugioh/images/7/7a/DMx214_BEWD.png/revision/latest?cb=20140819225434',
     3000,
     'yes',
-    'Released by its former owner due to aggressive nature but is actually quite fluffy',
+    'Released by its former owner due to aggressive nature but is actually quite cuddly.',
+    'available',
+    2
+  ),
+  (
+    'Alexstrasza',
+    'https://gamepedia.cursecdn.com/wowpedia/5/55/Alexstrasza_in_Twilight_Highlands.jpg',
+    7809,
+    'yes',
+    'Alexstrasza the Life-Binder, Aspect of the red dragonflight, is the guardian of all life in the world of Azeroth.',
     'available',
     2
   ),(
@@ -127,6 +153,14 @@ VALUES
     38,
     'yes',
     'Is really a dinosaur, but whatever',
+    'available',
+    2
+  ),(
+    'Diablos',
+    'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-diablos_render_001.png',
+    387,
+    'yes',
+    'The apex monster of the Wildspire Waste. A menacing, territorial beast that lurks underground. Make some armor from his horns.',
     'available',
     2
   ),(
