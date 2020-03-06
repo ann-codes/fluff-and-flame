@@ -8,7 +8,6 @@ import CreatureTypeShowpage from "../components/CreatureTypeShowpage";
 import Navigation from "../components/Navigation"
 import NewCreature from "../containers/NewCreature"
 import Footer from "../components/Footer";
-import Navigation from "../components/Navigation";
 
 const App = props => {
   return (
