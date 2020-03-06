@@ -1,3 +1,25 @@
+/* your styles, here */
+body {
+    font-family:'Carrois Gothic', 'Raleway', sans-serif;
+    background-color: white;
+}
+
+.nav {
+  height: 80px;
+  background-color: white ;
+  background-image: url('https://www.stickpng.com/assets/images/580b585b2edbce24c47b263f.png')
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.category-img {
+  width: 200px;
+}
+
 /* 404 Fade In */
 .fade-in {
   animation: fadeIn ease 4s;
