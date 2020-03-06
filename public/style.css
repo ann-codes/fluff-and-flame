@@ -30,3 +30,11 @@
   transform: scale(1.02);
   transition: 0.5s;
 }
+
+footer {
+  padding: 2rem;
+  margin: 2.5rem 0 0 0;
+  color: white;
+  text-align: center;
+  background-color: #003355;
+}

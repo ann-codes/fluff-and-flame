@@ -5,6 +5,7 @@ import IndexCreature from "./IndexCreature";
 import CreatureTypeShowpage from "../components/CreatureTypeShowpage";
 import AdminMain from "./AdminMain";
 import IndexAdopted from "./IndexAdopted";
+import Footer from "../components/Footer";
 
 const App = props => {
   return (
@@ -40,6 +41,7 @@ const App = props => {
             />
           </Switch>
         </div>
+        <Footer />
       </div>
     </BrowserRouter>
   );
