@@ -31,7 +31,10 @@
   transition: 0.5s;
 }
 
-.ann-test {
-  background-color: azure;
-  border: 1px solid black;
+footer {
+  padding: 2rem;
+  margin: 2.5rem 0 0 0;
+  color: white;
+  text-align: center;
+  background-color: #003355;
 }

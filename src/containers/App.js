@@ -5,6 +5,8 @@ import IndexCreature from "./IndexCreature";
 import CreatureTypeShowpage from "../components/CreatureTypeShowpage";
 import NewCreature from "../containers/NewCreature"
 import AdminMain from "./AdminMain";
+import IndexAdopted from "./IndexAdopted";
+import Footer from "../components/Footer";
 
 const App = props => {
   return (
@@ -20,30 +22,25 @@ const App = props => {
               <Link to="/creatures">HOME</Link>
             </li>
             <li>
+              <Link to="/adopted">HAPPY ADOPTIONS</Link>
+            </li>
+            <li>
               <Link to="/admin">ADMIN LOGIN</Link>
             </li>
           </ul>
-        </div>
-        <div className="top-bar-right">
-          <ul className="menu vertical medium-horizontal">
-            <li><a href="/creatures/Phoenix">Phoenix</a></li>
-            <li><a href="/creatures/Griffin">Griffin</a></li>
-            <li><a href="/creatures/Merfolk">Merfolk</a></li>
-            <li><a href="/admin">Admin</a></li>
-          </ul>
-        </div>
-      </div>
-        {/* </nav> */}
-        <Switch>
-          <div className="row medium-10 columns">
+        </nav>
+        <div className="row medium-10 columns">
+          <Switch>
+            <Route exact path="/admin" component={AdminMain} />
+            <Route exact path="/adopted" component={IndexAdopted} />
             <Route exact path="/creatures" component={IndexTypes} />
             <Route exact path="/creatures/:type" component={IndexCreature} />
             <Route exact path="/creatures/:type/:id" component={CreatureTypeShowpage} />
             <Route exact path="/adoptions/new" component={NewCreature} />
-            <Route exact path="/admin" component={AdminMain} />
-          </div>
-        </Switch>
-      {/* </div> */}
+          </Switch>
+        </div>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 };

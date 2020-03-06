@@ -9,7 +9,9 @@ const IndexCreature = props => {
   const fetchCreatures = () => fetchData(apiEndpoint, setCreatures);
   useEffect(fetchCreatures, []);
 
-  const mapCreatures = creatures.map(creature => (
+  const available = creatures.filter(creature => creature.adoption_status === "available")
+
+  const mapCreatures = available.map(creature => (
     <AllCreaturesTile
       key={creature.id}
       imgUrl={creature.img_url}
@@ -22,7 +24,7 @@ const IndexCreature = props => {
   ));
   return (
     <>
-      <h3 className="text-center">Find the {byType} of your dreams!</h3>
+      <h2 className="text-center">Find the {byType} of your dreams!</h2>
       <div className="row small-up-1 medium-up-2 large-up-3">
         {mapCreatures}
       </div>

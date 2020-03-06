@@ -3,7 +3,7 @@ VALUES
   (
     'Nyan Cat',
     'A mystical flying space feline in the shape of a pop tart.',
-    'https://upload.wikimedia.org/wikipedia/en/e/ed/Nyan_cat_250px_frame.PNG'
+    'https://i.pinimg.com/originals/93/e4/cd/93e4cd939da891cba51e740039b4f4d2.png'
   ),
   (
     'Dragon',
@@ -62,6 +62,14 @@ VALUES
     1
   ),
   (
+    'Taco Cat',
+    'https://i.pinimg.com/originals/af/60/ea/af60ea38d3ff1f9c940ed7540e6b4e9e.jpg',
+    17,
+    'no',
+    'A Nyan cat in the shape of a taco. Yummmmmmm.',
+    'available',
+    1
+  ),(
     'Galakrond',
     'https://gamepedia.cursecdn.com/wowpedia/thumb/e/e5/Galakrond%2C_the_Wretched.jpg/1032px-Galakrond%2C_the_Wretched.jpg',
     7950,
@@ -72,7 +80,7 @@ VALUES
   ),
   (
     'Spyro',
-    'https://www.syfy.com/sites/syfy/files/styles/1200x680/public/2018/11/spyro_reignited.png',
+    'https://i.kym-cdn.com/photos/images/original/001/378/444/bb6.jpg',
     950,
     'yes',
     'Fought many a battle now needs a happy home',
