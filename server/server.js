@@ -244,14 +244,60 @@ app.post("/api/v1/applicants/decision", (req, res) => {
   }
 });
 
-// Express routes
-app.get("/", (req, res) => {
-  res.redirect("/creatures");
+app.post("/api/v1/new_creature", (req, res) => {
+  let { name,
+    phoneNumber,
+    email,
+    petName,
+    petAge,
+    petType,
+    petImg,
+    vaccinationStatus} = req.body;
+
+  if(req.body.petType==="Nyan Cat"){
+    petType = 1
+  } if (req.body.petType=== "Dragon") {
+    petType = 2
+  } if (req.body.petType === "Unicorn") {
+    petType = 3
+  } if (req.body.petType === "Chimera") {
+    petType = 4
+  } if (req.body.petType === "Kelpi") {
+    petType = 5
+  } if (req.body.petType === "Phoenix") {
+    petType = 6
+  } if (req.body.petType === "Griffin") {
+    petType = 7
+  } if (req.body.petType === "Merfolk") {
+    petType = 8
+  }
+
+  pool
+    .query(
+      "INSERT INTO pet_surrender_applications (name, phone_number, email, pet_name, pet_age, pet_type_id, pet_image_url, vaccination_status, application_status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)",
+      [name, phoneNumber, email, petName, petAge, petType, petImg, vaccinationStatus, "pending"]
+    )
+    .then(result=>{
+      return res.json(result.rows)
+    })
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
 
+// Express routes
+app.get("/", (req, res) => {
+  res.redirect("/creatures")
+})
+
+app.get("/adoptions/new", (req, res) => {
+  res.render("home")
+})
+
 app.get("/creatures/:type/:id", (req, res) => {
-  res.render("home");
-});
+  res.render("home")
+})
 
 app.get("*", (req, res) => {
   res.render("home");
@@ -262,7 +308,7 @@ app.get('*', (req, res) => {
 })
 
 app.listen(3000, "0.0.0.0", () => {
-  console.log("Server is listening...");
-});
+  console.log("Server is listening...")
+})
 
 module.exports = app

@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import AdminMain from "./AdminMain";
-import IndexTypes from "./IndexTypes";
+import IndexAdopted from "./IndexAdopted";
 import IndexCreature from "./IndexCreature";
+import IndexTypes from "./IndexTypes";
 import CreatureTypeShowpage from "../components/CreatureTypeShowpage";
 import Navigation from "../components/Navigation"
-import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
-import IndexAdopted from "./IndexAdopted";
+import NewCreature from "../containers/NewCreature"
 import Footer from "../components/Footer";
 
 const App = props => {
@@ -22,11 +22,8 @@ const App = props => {
             <Route exact path="/admin" component={AdminMain} />
             <Route exact path="/creatures" component={IndexTypes} />
             <Route exact path="/creatures/:type" component={IndexCreature} />
-            <Route
-              exact
-              path="/creatures/:type/:id"
-              component={CreatureTypeShowpage}
-            />
+            <Route exact path="/creatures/:type/:id" component={CreatureTypeShowpage} />
+            <Route exact path="/adoptions/new" component={NewCreature} />
           </Switch>
         </div>
         <Footer />
