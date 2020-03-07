@@ -1,62 +1,96 @@
-/* your styles, here */
-body {
-    font-family:'Carrois Gothic', 'Raleway', sans-serif;
+
+  /* your styles, here */
+  body {
+    font-family: "Carrois Gothic", "Raleway", sans-serif;
     background-color: white;
-}
-
-.nav {
-  height: 80px;
-  background-color: white ;
-  background-image: url('https://www.stickpng.com/assets/images/580b585b2edbce24c47b263f.png')
-}
-
-.container {
+    background-image: url("https://www.transparenttextures.com/patterns/silver-scales.png");
+  }
+  
+  .nav {
+    padding: 20px;
+    background-color: white;
+    background-image: url("https://www.stickpng.com/assets/images/580b585b2edbce24c47b263f.png");
+    font-size: 1.2rem;
+  }
+  
+  .menu li {
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  
+  .container {
     max-width: 1000px;
     margin: 20px auto;
     padding: 10px;
-}
-
-.category-img {
-  width: 200px;
-}
-
-/* 404 Fade In */
-.fade-in {
-  animation: fadeIn ease 4s;
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
   }
-  100% {
-    opacity: 1;
+  
+  .category-img {
+    width: 200px;
   }
-}
-
-.bold-me {
-  font-weight: bolder;
-}
-
-.img-radius {
-  margin: 1rem 0;
-  border: 1px solid lightgray;
-  border-radius: 4px;
-  width: 100%;
-  transition: 0.5s;
-}
-
-.img-radius:hover {
-  border-radius: 10px;
-  -webkit-transform: scale(1.02);
-  -ms-transform: scale(1.02);
-  transform: scale(1.02);
-  transition: 0.5s;
-}
-
-footer {
-  padding: 2rem;
-  margin: 2.5rem 0 0 0;
-  color: white;
-  text-align: center;
-  background-color: #003355;
-}
+  
+  /* 404 Fade In */
+  .fade-in {
+    animation: fadeIn ease 4s;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  h1,
+  h2,
+  h3 {
+    font-family: "Major Mono Display", monospace;
+    font-weight: bolder;
+  }
+  
+  h2 {
+    background-color: #c5d4df;
+    padding: 0.5rem;
+    margin: 2rem 0 1.5rem 0;
+  }
+  
+  .mast {
+    padding: 2rem 3rem;
+    color: #003355;
+    background-color: #719cb8;
+  }
+  
+  .bold-me {
+    font-weight: bolder;
+  }
+  
+  .img-radius {
+    margin: 1rem 0;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    width: 100%;
+    transition: 0.5s;
+  }
+  
+  .img-radius:hover {
+    border-radius: 10px;
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
+    transition: 0.5s;
+  }
+  
+  .img-tweaks {
+    border-radius: 25px;
+    max-width: 800px;
+    margin: 2rem;
+  }
+  
+  footer {
+    padding: 2rem;
+    margin: 2.5rem 0 0 0;
+    color: white;
+    text-align: center;
+    background-color: #003355;
+  }
+  

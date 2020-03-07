@@ -74,51 +74,28 @@ app.get("/api/v1/creature_types/:type", (req, res) => {
 app.get("/api/v1/adoptable/:type", (req, res) => {
   const findType = req.params.type;
   pool
-  .connect()
-  .then(client => {
-    client.query(`SELECT adoptable_creatures.id AS id, adoptable_creatures.name AS name, adoptable_creatures.img_url AS img_url, adoptable_creatures.age AS age,
-    adoptable_creatures.vaccination_status AS vaccination_status, creature_types.type AS type_of_creature FROM adoptable_creatures JOIN creature_types ON creature_types.id = adoptable_creatures.type_id WHERE creature_types.type = '${findType}'`)
-    .then(result => {
-      const creatures = result.rows;
-      if (creatures.length > 0) {
-        client.release();
-        res.json(creatures);
-      } else {
-        res.status(404).send("404 Creature Type Not Found!");
-      }
-    })
-  })
-  .catch(error => {
-    console.log("ERROR =====> ", error);
-  });
-});
-
-app.get("/api/v1/creature_types/:type/:id", (req, res) => {
-  const findId = req.params.id;
-  const findType = req.params.type;
-  pool
     .connect()
     .then(client => {
       client
         .query(
-          `SELECT adoptable_creatures.id AS id,
-          adoptable_creatures.name AS name,
-          adoptable_creatures.creature_img  AS img_url,
+          `SELECT adoptable_creatures.id AS id, 
+          adoptable_creatures.name AS name, 
+          adoptable_creatures.creature_img  AS img_url, 
           adoptable_creatures.age AS age,
-          adoptable_creatures.vaccination_status AS vaccination_status,
-          adoptable_creatures.adoption_status AS adoption_status,
-          creature_types.type AS type_of_creature
-          FROM adoptable_creatures JOIN creature_types
-          ON creature_types.id = adoptable_creatures.type_id
+          adoptable_creatures.vaccination_status AS vaccination_status, 
+          adoptable_creatures.adoption_status AS adoption_status, 
+          creature_types.type AS type_of_creature 
+          FROM adoptable_creatures JOIN creature_types 
+          ON creature_types.id = adoptable_creatures.type_id 
           WHERE creature_types.type LIKE '${findType}'`
         )
         .then(result => {
-          const creature = result.rows;
-          if (creature.length > 0) {
+          const creatures = result.rows;
+          if (creatures.length > 0) {
             client.release();
-            res.json(creature[0]);
+            res.json(creatures);
           } else {
-            res.status(404).send("404 Creature Not Found!");
+            res.status(404).send("404 Creature Type Not Found!");
           }
         });
     })
@@ -169,7 +146,7 @@ app.get("/api/v1/applicants", (req, res) => {
     .then(client => {
       client
         .query(
-          `SELECT adoption_applications.id AS id,
+          `SELECT adoption_applications.id AS id, 
           adoption_applications.name AS name,
           adoption_applications.phone_number AS phone_number,
           adoption_applications.email AS email,
@@ -179,7 +156,7 @@ app.get("/api/v1/applicants", (req, res) => {
           adoptable_creatures.name AS creature_name,
           adoptable_creatures.adoption_status AS adoption_status,
           creature_types.type AS creature_type
-          FROM adoption_applications JOIN adoptable_creatures
+          FROM adoption_applications JOIN adoptable_creatures 
           ON adoption_applications.creature_id = adoptable_creatures.id
           JOIN creature_types ON creature_types.id = adoptable_creatures.type_id
           ORDER BY adoptable_creatures.id, adoption_applications.id`
@@ -303,12 +280,8 @@ app.get("*", (req, res) => {
   res.render("home");
 });
 
-app.get('*', (req, res) => {
-  res.render("home")
-})
-
 app.listen(3000, "0.0.0.0", () => {
   console.log("Server is listening...")
 })
 
-module.exports = app
+module.exports = app;
