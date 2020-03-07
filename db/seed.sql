@@ -1,3 +1,4 @@
+
 INSERT INTO creature_types(type, description, img_url)
 VALUES
   (
